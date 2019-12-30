@@ -1,3 +1,93 @@
+
+
+/* SASS CLASSES */
+$primary-font: 'Merriweather', serif;
+$borders: 1px solid #fff;
+
 * {
   box-sizing: border-box;
+  transition: 0.5s linear all;
+}
+
+html, body {
+  height: 100%;
+  background: #000;
+}
+
+body {
+  padding: 16px;
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+/* -----------------------------------------------------------------------------
+                           - - - >>> TYPOGRAPHY <<< - - -
+----------------------------------------------------------------------------- */
+p {
+  font-family: $primary-font;
+  color: #fff;
+}
+
+/* -----------------------------------------------------------------------------
+                              - - - >>> MAIN <<< - - -
+----------------------------------------------------------------------------- */
+main {
+  border: $borders;
+  height: 100%;
+  background-color: #000;
+}
+
+/* -----------------------------------------------------------------------------
+                        - - - >>> INTRO-WINDOW <<< - - -
+----------------------------------------------------------------------------- */
+
+.about-window  {
+  margin: 16px;
+  padding: 16px;
+  padding-top: 0;
+  border: $borders;
+  opacity: 0;
+  .row:first-child {
+    justify-content: flex-end;
+  }
+  .row {
+    #close-me p {
+      font-size: 12px;
+    }
+  }
+  #intro-title {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.display-switch {
+  opacity: 1;
+}
+
+/* -----------------------------------------------------------------------------
+                         - - - >>> NAVBAR-DIV <<< - - -
+----------------------------------------------------------------------------- */
+
+.navbar-div {
+  margin: 0 auto;
+  position: absolute;
+  bottom: calc(16px + 2px + (16px / 2)); /* (body-padding + border-weight + (body-padding / 2)) */
+  width: calc(100% - (16px) * 2); /* (100% - (body-padding x 2)) */
+  .row {
+    justify-content: space-between;
+    width: 200px;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    .nav-item {
+      color: #fff;
+      font-size: 24px;
+    }
+  }
 }
