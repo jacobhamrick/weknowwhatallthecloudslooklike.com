@@ -6,7 +6,7 @@ $borders: 1px solid #fff;
 
 * {
   box-sizing: border-box;
-  transition: 0.5s linear all;
+  transition: 0.3s linear all;
 }
 
 html, body {
@@ -24,13 +24,48 @@ body {
   flex-direction: row;
   width: 100%;
 }
+/* ------------- SCROLLBAR ------------- */
+/* width */
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #000;
+  margin-left: 2px;
+  border-left: $borders;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border: $borders;
+}
+
+::-webkit-scrollbar-button {
+  border-color: #fff;
+}
+
 
 /* -----------------------------------------------------------------------------
                            - - - >>> TYPOGRAPHY <<< - - -
 ----------------------------------------------------------------------------- */
-p {
+p, a {
   font-family: $primary-font;
+}
+
+p {
   color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #f48fb1;
+}
+
+a:hover {
+  color: #82e9de;
 }
 
 /* -----------------------------------------------------------------------------
@@ -40,6 +75,12 @@ main {
   border: $borders;
   height: 100%;
   background-color: #000;
+  padding: 16px;
+}
+
+#page-title {
+  text-align: center;
+  font-size: 24px;
 }
 
 /* -----------------------------------------------------------------------------
@@ -47,22 +88,36 @@ main {
 ----------------------------------------------------------------------------- */
 
 .about-window  {
-  margin: 16px;
+  z-index: 9000;
+  position: fixed;
+  background-color: #000;
   padding: 16px;
-  padding-top: 0;
+  padding-top: 4px;
   border: $borders;
   opacity: 0;
+  overflow-y: auto;
+  height: 85vh;
+  right: 32px; // 16px x 2
+  left: 32px;// 16px x 2
   .row:first-child {
     justify-content: flex-end;
   }
   .row {
-    #close-me p {
+    #close-me {
       font-size: 12px;
     }
   }
   #intro-title {
+    color: #fff;
+    font-size: 24px;
     text-align: center;
     width: 100%;
+    margin: 25px auto;
+  }
+  #intro-text {
+    margin: 0;
+    text-align: justify;
+    font-size: 13px;
   }
 }
 
@@ -78,7 +133,8 @@ main {
   margin: 0 auto;
   position: absolute;
   bottom: calc(16px + 2px + (16px / 2)); /* (body-padding + border-weight + (body-padding / 2)) */
-  width: calc(100% - (16px) * 2); /* (100% - (body-padding x 2)) */
+  width: calc(100% - (16px * 6));
+  height: 30px;
   .row {
     justify-content: space-between;
     width: 200px;
@@ -88,6 +144,38 @@ main {
     .nav-item {
       color: #fff;
       font-size: 24px;
+      margin-right: 20px;
     }
   }
+}
+
+/* -----------------------------------------------------------------------------
+                         - - - >>> IMAGES <<< - - -
+----------------------------------------------------------------------------- */
+.image-container {
+  width: 100%;
+  position: fixed;
+}
+
+.image {
+  position: relative;
+  max-width: 100px;
+}
+
+/* #############################################################################
+   #############################################################################
+                         - - - >>> BIG SCREENS <<< - -
+#############################################################################
+#############################################################################*/
+@media (min-width: 829px) {
+
+  .about-window  {
+    height: 87vh;
+    #intro-text {
+      font-size: 16px;
+    }
+  }
+
+
+
 }

@@ -1,1 +1,1 @@
-function toggleSwitch(){$(".about-window").toggleClass("display-switch")}$("#close-me").click(function(){toggleSwitch()}),$("#info-button").click(function(){toggleSwitch()});
+$(document).ready(function(){function o(){$(".about-window").toggleClass("display-switch")}$("#close-me").click(function(){o()}),$("#info-button").click(function(){o()});var n=$(".image-container").height(),t=$(".image-container").width();$(".image").each((o,a)=>{var c=Math.floor(Math.random()*n/3),i=Math.floor(Math.random()*t/6);console.log(i),console.log(c),$(a).css("left",c),$(a).css("top",i)})});
