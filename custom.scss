@@ -88,7 +88,7 @@ main {
 ----------------------------------------------------------------------------- */
 
 .about-window  {
-  z-index: 9000;
+  z-index: 0;
   position: fixed;
   background-color: #000;
   padding: 16px;
@@ -99,6 +99,7 @@ main {
   height: 85vh;
   right: 32px; // 16px x 2
   left: 32px;// 16px x 2
+  transition: all 0.3s;
   .row:first-child {
     justify-content: flex-end;
   }
@@ -123,6 +124,8 @@ main {
 
 .display-switch {
   opacity: 1;
+  transition: all 0.3s;
+  z-index: 9000;
 }
 
 /* -----------------------------------------------------------------------------

@@ -68,7 +68,7 @@ main {
                         - - - >>> INTRO-WINDOW <<< - - -
 ----------------------------------------------------------------------------- */
 .about-window {
-  z-index: 9000;
+  z-index: 0;
   position: fixed;
   background-color: #000;
   padding: 16px;
@@ -78,7 +78,8 @@ main {
   overflow-y: auto;
   height: 85vh;
   right: 32px;
-  left: 32px; }
+  left: 32px;
+  transition: all 0.3s; }
   .about-window .row:first-child {
     justify-content: flex-end; }
   .about-window .row #close-me {
@@ -95,7 +96,9 @@ main {
     font-size: 13px; }
 
 .display-switch {
-  opacity: 1; }
+  opacity: 1;
+  transition: all 0.3s;
+  z-index: 9000; }
 
 /* -----------------------------------------------------------------------------
                          - - - >>> NAVBAR-DIV <<< - - -

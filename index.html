@@ -9,6 +9,7 @@
 
 	<title>We Know What All the Clouds Look Like</title>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
   <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/154525a597.js" crossorigin="anonymous"></script>
 	<link href="custom.css" rel="stylesheet">
@@ -50,11 +51,11 @@
   <p id="page-title">WE KNOW WHAT ALL THE CLOUDS LOOK LIKE</p>
 
   <div class="image-container">
-    <img class="image" src="/img/img001.png" />
-    <img class="image" src="/img/img002.png" />
-    <img class="image" src="/img/img003.png" />
-    <img class="image" src="/img/img004.png" />
-    <img class="image" src="/img/img005.png" />
+    <a class="image-wrapper" href="javascript:;" data-fancybox-trigger><img data-fancybox="gallery" class="image" src="/img/img001.png" /></a>
+    <a class="image-wrapper" href="javascript:;" data-fancybox-trigger><img class="image" src="/img/img002.png" /></a>
+    <a class="image-wrapper" href="javascript:;" data-fancybox-trigger><img class="image" src="/img/img003.png" /></a>
+    <a class="image-wrapper" href="javascript:;" data-fancybox-trigger><img class="image" src="/img/img004.png" /></a>
+    <a class="image-wrapper" href="javascript:;" data-fancybox-trigger><img class="image" src="/img/img005.png" /></a>
   </div><!-- end container -->
 
   <div class="navbar-div">
@@ -98,6 +99,9 @@
   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
   crossorigin="anonymous">
 </script>
+
+<!-- Fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 <script
   src="myscript.js">
