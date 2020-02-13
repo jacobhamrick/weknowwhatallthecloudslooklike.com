@@ -3,6 +3,9 @@
 /* SASS CLASSES */
 $primary-font: 'Merriweather', serif;
 $borders: 1px solid #fff;
+$body-padding: 20px;
+$purple: #e040fb;
+$green: #A4FA3E;
 
 * {
   box-sizing: border-box;
@@ -12,10 +15,11 @@ $borders: 1px solid #fff;
 html, body {
   height: 100%;
   background: #000;
+  cursor: url('wildthang.cur'), auto;
 }
 
 body {
-  padding: 16px;
+  padding: $body-padding;
   margin: 0;
 }
 
@@ -27,7 +31,7 @@ body {
 /* ------------- SCROLLBAR ------------- */
 /* width */
 ::-webkit-scrollbar {
-    width: 16px;
+    width: $body-padding;
 }
 
 /* Track */
@@ -61,21 +65,20 @@ p {
 
 a {
   text-decoration: none;
-  color: #f48fb1;
+  color: $purple;
 }
 
 a:hover {
-  color: #82e9de;
+  color: $green;
 }
 
 /* -----------------------------------------------------------------------------
                               - - - >>> MAIN <<< - - -
 ----------------------------------------------------------------------------- */
 main {
-  border: $borders;
   height: 100%;
   background-color: #000;
-  padding: 16px;
+  padding: $body-padding;
 }
 
 #page-title {
@@ -91,14 +94,15 @@ main {
   z-index: 0;
   position: fixed;
   background-color: #000;
-  padding: 16px;
+  padding: $body-padding;
   padding-top: 4px;
   border: $borders;
   opacity: 0;
+  visibility: hidden;
   overflow-y: auto;
   height: 85vh;
-  right: 32px; // 16px x 2
-  left: 32px;// 16px x 2
+  right: calc(#{$body-padding} * 2);
+  left: calc(#{$body-padding} * 2);
   transition: all 0.3s;
   .row:first-child {
     justify-content: flex-end;
@@ -125,6 +129,7 @@ main {
 .display-switch {
   opacity: 1;
   transition: all 0.3s;
+  visibility: visible;
   z-index: 9000;
 }
 
@@ -132,23 +137,20 @@ main {
                          - - - >>> NAVBAR-DIV <<< - - -
 ----------------------------------------------------------------------------- */
 
-.navbar-div {
+.navbar-div.row {
   margin: 0 auto;
   position: absolute;
-  bottom: calc(16px + 2px + (16px / 2)); /* (body-padding + border-weight + (body-padding / 2)) */
-  width: calc(100% - (16px * 6));
-  height: 30px;
-  .row {
-    justify-content: space-between;
-    width: 200px;
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    .nav-item {
-      color: #fff;
-      font-size: 24px;
-      margin-right: 20px;
-    }
+  top: 90%;
+  left: 36%;
+  width: 300px;
+  text-align: center;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  .nav-item {
+    color: #fff;
+    font-size: 40px;
+    margin-right: 20px;
   }
 }
 
@@ -156,7 +158,8 @@ main {
                          - - - >>> IMAGES <<< - - -
 ----------------------------------------------------------------------------- */
 .image-container {
-  width: 100%;
+  width: calc(100% - (#{$body-padding} * 2));
+  height: calc(100% - (#{$body-padding} * 2));
   position: fixed;
 }
 

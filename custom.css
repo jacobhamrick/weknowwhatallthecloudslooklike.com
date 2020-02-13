@@ -5,10 +5,11 @@
 
 html, body {
   height: 100%;
-  background: #000; }
+  background: #000;
+  cursor: url("wildthang.cur"), auto; }
 
 body {
-  padding: 16px;
+  padding: 20px;
   margin: 0; }
 
 .row {
@@ -19,7 +20,7 @@ body {
 /* ------------- SCROLLBAR ------------- */
 /* width */
 ::-webkit-scrollbar {
-  width: 16px; }
+  width: 20px; }
 
 /* Track */
 ::-webkit-scrollbar-track {
@@ -46,19 +47,18 @@ p {
 
 a {
   text-decoration: none;
-  color: #f48fb1; }
+  color: #e040fb; }
 
 a:hover {
-  color: #82e9de; }
+  color: #A4FA3E; }
 
 /* -----------------------------------------------------------------------------
                               - - - >>> MAIN <<< - - -
 ----------------------------------------------------------------------------- */
 main {
-  border: 1px solid #fff;
   height: 100%;
   background-color: #000;
-  padding: 16px; }
+  padding: 20px; }
 
 #page-title {
   text-align: center;
@@ -71,14 +71,15 @@ main {
   z-index: 0;
   position: fixed;
   background-color: #000;
-  padding: 16px;
+  padding: 20px;
   padding-top: 4px;
   border: 1px solid #fff;
   opacity: 0;
+  visibility: hidden;
   overflow-y: auto;
   height: 85vh;
-  right: 32px;
-  left: 32px;
+  right: calc(20px * 2);
+  left: calc(20px * 2);
   transition: all 0.3s; }
   .about-window .row:first-child {
     justify-content: flex-end; }
@@ -98,34 +99,33 @@ main {
 .display-switch {
   opacity: 1;
   transition: all 0.3s;
+  visibility: visible;
   z-index: 9000; }
 
 /* -----------------------------------------------------------------------------
                          - - - >>> NAVBAR-DIV <<< - - -
 ----------------------------------------------------------------------------- */
-.navbar-div {
+.navbar-div.row {
   margin: 0 auto;
   position: absolute;
-  bottom: calc(16px + 2px + (16px / 2));
-  /* (body-padding + border-weight + (body-padding / 2)) */
-  width: calc(100% - (16px * 6));
-  height: 30px; }
-  .navbar-div .row {
-    justify-content: space-between;
-    width: 200px;
-    list-style: none;
-    padding: 0;
-    margin: 0 auto; }
-    .navbar-div .row .nav-item {
-      color: #fff;
-      font-size: 24px;
-      margin-right: 20px; }
+  top: 90%;
+  left: 36%;
+  width: 300px;
+  text-align: center;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0; }
+  .navbar-div.row .nav-item {
+    color: #fff;
+    font-size: 40px;
+    margin-right: 20px; }
 
 /* -----------------------------------------------------------------------------
                          - - - >>> IMAGES <<< - - -
 ----------------------------------------------------------------------------- */
 .image-container {
-  width: 100%;
+  width: calc(100% - (20px * 2));
+  height: calc(100% - (20px * 2));
   position: fixed; }
 
 .image {

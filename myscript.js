@@ -12,27 +12,51 @@ $(document).ready(function(){
     toggleSwitch()
   });
 
-  var image = $(".image-wrapper");
-  image.fancybox();
+
+
+  const image = $(".image-wrapper");
+
+
+
+  image.fancybox(
+    {
+      animationEffect: "fade",
+    }
+  );
+
+
+
   image.draggable(
-          {
-            delay: 0,
-            containment: "main",
-            distance: 0
-          }
-        );
+    {
+      delay: 0,
+      containment: "main",
+      distance: 0
+    }
+  );
 
-  var containerWidth = $(".image-container").height();
-  var containerHeight = $(".image-container").width();
 
+
+
+
+  var containerWidth = $("main").height();
+  var containerHeight = $("main").width();
+
+  function pileImages() {
     image.each( (index,img)=> {
-      var randX = Math.floor((Math.random() * containerWidth / 1.5));
+      var randX = Math.floor((Math.random() * containerWidth / 1.1));
       var randY = Math.floor((Math.random() * containerHeight / 3));
       console.log(randY);
       console.log(randX);
       $(img).css("left", randX);
       $(img).css("top", randY);
-
     });
+  }
+
+  pileImages();
+
+  $(".pileImages").click(function() {
+    pileImages();
+  });
+
 
 });//end document.ready
