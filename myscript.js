@@ -17,14 +17,13 @@ $(document).ready(function(){
   const image = $(".image-wrapper");
 
 
-
   image.fancybox(
     {
       animationEffect: "fade",
+      loop: true,
+      touch: false
     }
   );
-
-
 
   image.draggable(
     {
@@ -33,6 +32,12 @@ $(document).ready(function(){
       distance: 0
     }
   );
+
+  // stops fancybox from opening after image is dragged
+  document.addEventListener("dragend", function(event) {
+    $.fancybox.close();
+  });
+
 
 
 
