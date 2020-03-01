@@ -168,6 +168,8 @@ main {
   max-width: 100px;
 }
 
+
+
 /* #############################################################################
    #############################################################################
                          - - - >>> BIG SCREENS <<< - -
@@ -181,6 +183,33 @@ main {
       font-size: 16px;
     }
   }
+
+/* -----------------------------------------------------------------------------
+                         - - - >>> FANCYBOX <<< - - -
+----------------------------------------------------------------------------- */
+  .fancybox-container,
+  .fancybox-infobar,
+  .fancybox-button {
+    font-family: $primary-font;
+  }
+
+  .fancybox-is-open
+  .fancybox-bg,
+  .fancybox-button,
+  .fancybox-infobar {
+    background: #000;
+    opacity: 1;
+  }
+
+  .fancybox-slide {
+    padding: 0;
+  }
+
+
+
+
+
+
 
 
 

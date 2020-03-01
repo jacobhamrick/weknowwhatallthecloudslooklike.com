@@ -19,9 +19,16 @@ $(document).ready(function(){
 
   image.fancybox(
     {
+      buttons: [
+        //"fullScreen",
+        //"download",
+        "thumbs",
+        "close"
+      ],
       animationEffect: "fade",
       loop: true,
       touch: false
+
     }
   );
 
@@ -41,7 +48,7 @@ $(document).ready(function(){
 
 
 
-
+// to-do: get screensize and update math depending on screen-size
 
   var containerWidth = $("main").height();
   var containerHeight = $("main").width();

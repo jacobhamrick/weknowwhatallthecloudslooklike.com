@@ -141,4 +141,19 @@ main {
   .about-window {
     height: 87vh; }
     .about-window #intro-text {
-      font-size: 16px; } }
+      font-size: 16px; }
+  /* -----------------------------------------------------------------------------
+                         - - - >>> FANCYBOX <<< - - -
+----------------------------------------------------------------------------- */
+  .fancybox-container,
+  .fancybox-infobar,
+  .fancybox-button {
+    font-family: "Merriweather", serif; }
+  .fancybox-is-open
+.fancybox-bg,
+  .fancybox-button,
+  .fancybox-infobar {
+    background: #000;
+    opacity: 1; }
+  .fancybox-slide {
+    padding: 0; } }
