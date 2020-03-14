@@ -56,19 +56,28 @@ a:hover {
                               - - - >>> MAIN <<< - - -
 ----------------------------------------------------------------------------- */
 .main {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  height: 100%;
+  display: block;
+  position: fixed;
+  height: calc(100% - ((20px * 3) * 2));
+  width: calc(100% - ((20px * 3) * 2));
   background-color: #000;
-  padding: calc(20px * 3); }
+  margin: calc(20px * 3);
+  transition: all 0.3s; }
+
+.main.active {
+  display: flex;
+  transition: all 0.3s;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  place-content: flex-start; }
 
 #page-title {
   text-align: center;
   font-size: 24px; }
 
 /* -----------------------------------------------------------------------------
-                        - - - >>> INTRO-WINDOW <<< - - -
+                        - - - >>> ABOUT-WINDOW <<< - - -
 ----------------------------------------------------------------------------- */
 .about-window {
   z-index: 0;
@@ -131,16 +140,10 @@ a:hover {
 
 .image-wrapper {
   opacity: 0;
-  position: fixed;
   top: auto;
   left: auto; }
   .image-wrapper .image {
     max-width: 100px;
-    transition: all 0.3s; }
-
-.image-row.active {
-  transition: all 0.3s; }
-  .image-row.active .image-wrapper {
     transition: all 0.3s; }
 
 .fancybox-infobar {

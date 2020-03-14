@@ -77,12 +77,22 @@ a:hover {
                               - - - >>> MAIN <<< - - -
 ----------------------------------------------------------------------------- */
 .main {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  height: 100%;
+  display: block;
+  position: fixed;
+  height: calc(100% - ((#{$body-padding} * 3) * 2));
+  width:  calc(100% - ((#{$body-padding} * 3) * 2));
   background-color: #000;
-  padding: calc(#{$body-padding} * 3);
+  margin: calc(#{$body-padding} * 3);
+  transition: all 0.3s;
+}
+
+.main.active {
+  display: flex;
+  transition: all 0.3s;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  place-content: flex-start;
 }
 
 #page-title {
@@ -91,7 +101,7 @@ a:hover {
 }
 
 /* -----------------------------------------------------------------------------
-                        - - - >>> INTRO-WINDOW <<< - - -
+                        - - - >>> ABOUT-WINDOW <<< - - -
 ----------------------------------------------------------------------------- */
 
 .about-window  {
@@ -170,7 +180,6 @@ a:hover {
 
 .image-wrapper {
   opacity: 0;
-  position: fixed;
   top: auto;
   left: auto;
   .image {
@@ -179,12 +188,6 @@ a:hover {
   }
 }
 
-.image-row.active {
-  transition: all 0.3s;
-  .image-wrapper {
-    transition: all 0.3s;
-  }
-}
 
 
 .fancybox-infobar {
@@ -232,8 +235,11 @@ a:hover {
 ----------------------------------------------------------------------------- */
 
 
-.image-wrapper {
+  .image-wrapper {
+    transition: all 0.3s;
+  }
 
-  transition: all 0.3s;
-}
+
+
+
 }

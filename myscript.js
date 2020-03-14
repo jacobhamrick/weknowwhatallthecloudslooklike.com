@@ -2,7 +2,7 @@
 $(document).ready(function(){
 
 
-  const image = $(".image-wrapper");
+  var image = $(".image-wrapper");
   const main = $(".main");
   var mainHeight = main.height();
   var mainWidth = main.width();
@@ -12,14 +12,78 @@ $(document).ready(function(){
   // fade-in images when page ready
   $(image).css("opacity", "1");
 
+  function toggleSwitch() {
+    $(".about-window").toggleClass("display-switch");
+  }
+
+  function centerPile() {
+    $(image).each( (index,img)=> {
+      $(img).css("position", "relative");
+      $(img).css("transition", "all 1.0s");
+      $(img).css("top", "50%");
+      $(img).css("left", "50%");
+    });
+  }
 
   function getMainDimensions() {
-    mainHeight = main.height();
-    mainWidth = main.width();
-    console.log("mainH" + mainHeight + "," + "mainW" + mainWidth);
+    mainHeight = $(main).height();
+    mainWidth = $(main).width();
+    console.log("mainH: " + mainHeight + ", " + "mainW: " + mainWidth);
   };
 
-  getMainDimensions();
+  function pileImages() {
+
+    if ($(main).hasClass("active")) {
+      $(main).removeClass("active");
+    }
+
+    getMainDimensions();
+
+    const mainPadding = 60;
+
+    $(image).each( (index,img)=> {
+      $(image).css("transition", "all 1.0s")
+      $(image).css("position", "fixed");
+
+      var randX = Math.floor( (Math.random() * mainWidth) );
+      var randY = Math.floor( (Math.random() * mainHeight) );
+
+      if ( randX < mainPadding ) {
+        randX = randX + mainPadding;
+      };
+
+      if ( randX > (mainWidth - mainPadding) ) {
+        randX = randX - mainPadding;
+      }
+
+      if ( randY < mainPadding ) {
+        randY = randY + mainPadding;
+      };
+
+      if ( randY > (mainHeight - mainPadding) ) {
+        randY = randY - mainPadding;
+      }
+
+      $(img).css("left", randX);
+      $(img).css("top", randY);
+    });
+  }
+
+
+  function toggleGrid() {
+    main.addClass("active");
+    $(image).css("position", "relative");
+
+    if ($(main).hasClass("active")) {
+
+      $(image).each( (index,img)=> {
+        $(img).css("top", "0");
+        $(img).css("left", "0");
+      });
+
+    }
+  };
+
 
 
   window.addEventListener('resize', function(event) {
@@ -29,47 +93,19 @@ $(document).ready(function(){
     }, 300);
   });
 
-
-
-  function pileImages() {
-
-    getMainDimensions();
-
-    image.each( (index,img)=> {
-
-      var randX = Math.floor( (Math.random() * mainWidth) );
-      var randY = Math.floor( (Math.random() * mainHeight) );
-
-      $(img).css("transition", "all 1.0s")
-      $(img).css("left", randX);
-      $(img).css("top", randY);
-    });
-  }
-
-  // pile on start up
-  pileImages();
-
   $(window).bind('resizeEnd', function() {
+    centerPile();
     pileImages();
   });
 
+  // pile on start up
+  centerPile();
+  pileImages();
 
-  function toggleGrid() {
-    $(".image-row").toggleClass("active");
-    if ($(".image-row").hasClass("active")) {
-      image.each( (index,img)=> {
-        $(image).css("transition", "all 1.0s")
-        $(image).css("top", "50%");
-        $(image).css("left", "0");
-    });
-    } else {
-      pileImages();
-    }
-  };
 
-  function toggleSwitch() {
-    $(".about-window").toggleClass("display-switch");
-  }
+
+
+
 
   $("#close-me").click(function(){
     toggleSwitch()
@@ -90,9 +126,6 @@ $(document).ready(function(){
   image.fancybox(
     {
       buttons: [
-        //"fullScreen",
-        //"download",
-        //"thumbs",
         "close"
       ],
       animationEffect: "fade",
