@@ -1,25 +1,26 @@
 
 
 /* SASS CLASSES */
-$primary-font: 'Merriweather', serif;
+$primary-font: 'Arial', sans-serif;
 $borders: 1px solid #fff;
 $body-padding: 20px;
-$purple: #e040fb;
+$white: #fff;
 $green: #A4FA3E;
+
 
 * {
   box-sizing: border-box;
-  transition: 0.3s linear all;
+  transition: all 0.3s;
 }
 
 html, body {
   height: 100%;
   background: #000;
   cursor: url('wildthang.cur'), auto;
+  overflow: hidden;
 }
 
 body {
-  padding: $body-padding;
   margin: 0;
 }
 
@@ -65,7 +66,7 @@ p {
 
 a {
   text-decoration: none;
-  color: $purple;
+  color: $white;
 }
 
 a:hover {
@@ -75,10 +76,13 @@ a:hover {
 /* -----------------------------------------------------------------------------
                               - - - >>> MAIN <<< - - -
 ----------------------------------------------------------------------------- */
-main {
+.main {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   height: 100%;
   background-color: #000;
-  padding: $body-padding;
+  padding: calc(#{$body-padding} * 3);
 }
 
 #page-title {
@@ -95,14 +99,10 @@ main {
   position: fixed;
   background-color: #000;
   padding: $body-padding;
-  padding-top: 4px;
-  border: $borders;
   opacity: 0;
   visibility: hidden;
   overflow-y: auto;
-  height: 85vh;
-  right: calc(#{$body-padding} * 2);
-  left: calc(#{$body-padding} * 2);
+  height: 100%;
   transition: all 0.3s;
   .row:first-child {
     justify-content: flex-end;
@@ -151,6 +151,9 @@ main {
     color: #fff;
     font-size: 40px;
     margin-right: 20px;
+    i {
+      font-size: 24px;
+    }
   }
 }
 
@@ -163,11 +166,30 @@ main {
   position: fixed;
 }
 
-.image {
-  position: relative;
-  max-width: 100px;
+
+
+.image-wrapper {
+  opacity: 0;
+  position: fixed;
+  top: auto;
+  left: auto;
+  .image {
+    max-width: 100px;
+    transition: all 0.3s;
+  }
 }
 
+.image-row.active {
+  transition: all 0.3s;
+  .image-wrapper {
+    transition: all 0.3s;
+  }
+}
+
+
+.fancybox-infobar {
+  display: none;
+}
 
 
 /* #############################################################################
@@ -178,7 +200,6 @@ main {
 @media (min-width: 829px) {
 
   .about-window  {
-    height: 87vh;
     #intro-text {
       font-size: 16px;
     }
@@ -206,11 +227,13 @@ main {
   }
 
 
+/* -----------------------------------------------------------------------------
+                         - - - >>> IMAGES <<< - - -
+----------------------------------------------------------------------------- */
 
 
+.image-wrapper {
 
-
-
-
-
+  transition: all 0.3s;
+}
 }
