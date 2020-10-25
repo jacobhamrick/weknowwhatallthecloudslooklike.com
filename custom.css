@@ -1,13 +1,13 @@
 /* SASS CLASSES */
 * {
-  box-sizing: border-box;
-  transition: all 0.3s; }
+  box-sizing: border-box; }
 
 html, body {
-  height: 100%;
+  height: 100vh;
   background: #000;
-  cursor: url("wildthang.cur"), auto;
-  overflow: hidden; }
+  cursor: url("/cloudy.ico"), auto;
+  scroll-behavior: smooth;
+  position: absolute; }
 
 body {
   margin: 0; }
@@ -20,21 +20,20 @@ body {
 /* ------------- SCROLLBAR ------------- */
 /* width */
 ::-webkit-scrollbar {
-  width: 20px; }
+  width: 0; }
 
 /* Track */
 ::-webkit-scrollbar-track {
   background-color: #000;
-  margin-left: 2px;
-  border-left: 1px solid #fff; }
+  margin-left: 2px; }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background-color: #000;
-  border: 1px solid #fff; }
+  border: 0 solid black; }
 
 ::-webkit-scrollbar-button {
-  border-color: #fff; }
+  border-color: #000; }
 
 /* -----------------------------------------------------------------------------
                            - - - >>> TYPOGRAPHY <<< - - -
@@ -50,27 +49,106 @@ a {
   color: #fff; }
 
 a:hover {
-  color: #A4FA3E; }
+  color: #A4FA3E;
+  cursor: url("/eye.ico"); }
+
+.draggable {
+  cursor: url("/eye.ico"); }
+
+.scene {
+  height: 100vh;
+  width: 100vw; }
+
+.trigger {
+  opacity: 0;
+  min-height: 1px;
+  max-height: 1px;
+  width: 100%; }
+
+/* -----------------------------------------------------------------------------
+                           - - - >>> INTROSCENES <<< - - -
+----------------------------------------------------------------------------- */
+.introdiv {
+  height: 1000vh; }
+
+.introimg {
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  transition: all 4.5s; }
+
+.introimg.visible {
+  opacity: 1;
+  transition: all 4.5s; }
+
+.introdiv.inactive {
+  z-index: 0;
+  opacity: 0;
+  transition: all 4s;
+  height: 0; }
+
+/* -----------------------------------------------------------------------------
+                           - - - >>> TITLE SCENE <<< - - -
+----------------------------------------------------------------------------- */
+.titlediv {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  opacity: 1;
+  transition: opacity 6s;
+  z-index: 9000;
+  position: fixed;
+  height: 100vh;
+  width: 100vw; }
+
+.titlediv.inactive {
+  z-index: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  transition: all 4s; }
+
+#cloudtext {
+  color: #fff;
+  text-align: center;
+  font-size: 4.5vw;
+  opacity: 1;
+  top: -120px;
+  white-space: nowrap;
+  width: 100%; }
+
+#cloudtext .letter {
+  display: inline-block;
+  line-height: 1em; }
 
 /* -----------------------------------------------------------------------------
                               - - - >>> MAIN <<< - - -
 ----------------------------------------------------------------------------- */
+.main.inactive {
+  opacity: 0;
+  display: none; }
+
 .main {
-  display: block;
-  position: fixed;
+  display: flex;
   height: calc(100% - ((20px * 3) * 2));
   width: calc(100% - ((20px * 3) * 2));
-  background-color: #000;
   margin: calc(20px * 3);
-  transition: all 0.3s; }
-
-.main.active {
-  display: flex;
-  transition: all 0.3s;
+  position: absolute;
   justify-content: space-between;
   flex-wrap: wrap;
   flex-direction: row;
-  place-content: flex-start; }
+  place-content: flex-start;
+  z-index: 2000; }
+
+.main.visible {
+  opacity: 1;
+  z-index: 9000; }
 
 #page-title {
   text-align: center;
@@ -115,7 +193,7 @@ a:hover {
 ----------------------------------------------------------------------------- */
 .navbar-div.row {
   margin: 0 auto;
-  position: absolute;
+  position: fixed;
   top: 90%;
   left: 36%;
   width: 300px;
