@@ -33,7 +33,7 @@ body {
 /* ------------- SCROLLBAR ------------- */
 /* width */
 ::-webkit-scrollbar {
-    width: 0;
+    width: 10px;
 }
 
 /* Track */
@@ -44,7 +44,7 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: #000;
+  background-color: pink;
   border: 0 solid black;
 }
 
@@ -94,18 +94,16 @@ a:hover {
                            - - - >>> INTROSCENES <<< - - -
 ----------------------------------------------------------------------------- */
 .introdiv {
-  height: 1000vh;
+  height: 24000vh;
 }
 
 .introimg {
-  background-color: transparent;
-  height: 100%;
-  width: 100%;
+  height: 80%;
+  width: 80%;
   opacity: 0;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
   position: fixed;
   transition: all 4.5s;
 }
@@ -119,8 +117,9 @@ a:hover {
 .introdiv.inactive {
   z-index: 0;
   opacity: 0;
-  transition: all 4s;
+  transition: all 1s;
   height: 0;
+  width: 0;
 }
 //
 // .carousel-inner {
@@ -162,7 +161,6 @@ a:hover {
   opacity: 0;
   height: 0;
   width: 0;
-  transition: all 4s;
 }
 
 #cloudtext {
@@ -205,13 +203,15 @@ a:hover {
 
 .main.visible {
 		opacity: 1;
-    z-index:9000;
+    z-index: 9000;
+    position: fixed;
 	}
 
 
 #page-title {
   text-align: center;
   font-size: 24px;
+
 }
 
 /* -----------------------------------------------------------------------------

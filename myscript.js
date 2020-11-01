@@ -3,14 +3,16 @@ $(document).ready(function() {
 
   const introImages = $(".introimg");
   const introDiv = $(".introdiv");
+  const titleDiv = $(".titlediv");
+  const mainDiv = $(".main");
 
 	// INIT SCROLL MAGIC CONTROLLER FOR SCENES
 	let controller = new ScrollMagic.Controller();
 
 	// ---------------------- INTRO SCENE ----------------------
 
-  const sceneDuration = 5000;
-  const offset = 5000;
+  const sceneDuration = 9000;
+  const offset = 9000;
 
 	const introscene1 = new ScrollMagic.Scene({
     triggerElement: "#introtrigger1",
@@ -155,7 +157,7 @@ $(document).ready(function() {
 
   // no display to allow dragging in main scene
   titlekill.on("enter", function (event) {
-     $(".titlediv").addClass("inactive");
+     $(titleDiv).addClass("inactive");
   });
 
 
@@ -164,14 +166,14 @@ $(document).ready(function() {
   textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
   titlescene.on("enter", function (event) {
-    $(".introdiv").addClass("inactive");
+    $(introDiv).addClass("inactive");
 
     setTimeout(function() {
-      $(".titlediv").removeClass("inactive")
+      $(titleDiv).removeClass("inactive");
       anime.timeline({loop: false})
       .add({
         targets: '#cloudtext .letter',
-        translateY: [1120, 1000],
+        translateY: [-120, 300],
         easing: "easeOutExpo",
         duration: 1400,
         delay: (el, i) => 100 * i
@@ -179,10 +181,11 @@ $(document).ready(function() {
         targets: '#cloudtext',
         opacity: 0,
         duration: 2000,
-        easing: "easeOutExpo",
-        delay: 1000
+        easing: "easeOutExpo"
+        // delay: 1000
       });
     }, 1000);
+
   });
 
 
@@ -190,7 +193,7 @@ $(document).ready(function() {
 
   const mainscene = new ScrollMagic.Scene({
    triggerElement: "#maintrigger",
-   offset: (offset + (sceneDuration * 13)),
+   offset: ((100) + (sceneDuration * 13)),
    triggerHook: 0.4,
    duration: sceneDuration,
  })
@@ -199,18 +202,24 @@ $(document).ready(function() {
 
  setTimeout(function() {
      mainscene.on("enter", function (event) {
-     $(".main").removeClass("inactive");
-     $(".main").css("position", "fixed");
-     $(image).css("opacity", "1");
-     centerPile();
-     pileImages();
-   });
- }, 4000);
+     $(mainDiv).removeClass("inactive");
+     $(mainDiv).addClass("visible");
 
+     if ($(mainDiv).hasClass("visible")) {
+       setTimeout(function() {
+        $(image).css("opacity", "1");
+         centerPile();
+         pileImages();
+         console.log("made it");
+       }, 6000);
+     }
+
+   });
+ }, 5000);
 
  // set up image variables
   const image = $(".image-wrapper");
-  const main = $(".main");
+  const main = $(mainDiv);
   let mainHeight = main.height();
   let mainWidth = main.width();
   let imgLeft = 0;
