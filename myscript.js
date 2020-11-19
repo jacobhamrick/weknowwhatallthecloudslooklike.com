@@ -115,6 +115,7 @@ $(document).ready(function() {
      if ($(mainDiv).hasClass("visible")) {
        setTimeout(function() {
         $(".navbar-div").addClass("visible");
+        $(".titlediv").addClass("inactive");
         $(image).css("opacity", "1");
          centerPile();
          pileImages();

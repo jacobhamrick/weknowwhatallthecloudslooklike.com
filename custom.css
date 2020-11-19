@@ -133,7 +133,7 @@ a:hover {
   .navbar-div {
     margin: 0 auto;
     position: fixed;
-    top: 90%;
+    bottom: 0;
     left: 36%;
     opacity: 0;
     width: 300px;
@@ -154,8 +154,7 @@ a:hover {
     color: green; }
   .navbar-div.visible {
     opacity: 1;
-    transition: all 5s;
-    z-index: 9000; }
+    transition: all 5s; }
   /* -----------------------------------------------------------------------------
                            - - - >>> IMAGES <<< - - -
   ----------------------------------------------------------------------------- */
