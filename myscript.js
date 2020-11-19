@@ -6,216 +6,123 @@ $(document).ready(function() {
   const titleDiv = $(".titlediv");
   const mainDiv = $(".main");
 
-	// INIT SCROLL MAGIC CONTROLLER FOR SCENES
 	let controller = new ScrollMagic.Controller();
 
-	// ---------------------- INTRO SCENE ----------------------
+  // ---------------------------------------------------------------------------
+  //         ---------------------- INTRO SCENE ----------------------
+  // ---------------------------------------------------------------------------
 
-  const sceneDuration = 9000;
-  const offset = 9000;
+  // set dimensions of intro scene
+  function setIntroDivHeight() {
+    let introDivHeight = ( $(introDiv).height() * $(introImages).length );
+    $(introDiv).css("height", introDivHeight)
+  };
+  setIntroDivHeight();
 
-	const introscene1 = new ScrollMagic.Scene({
-    triggerElement: "#introtrigger1",
-    offset:  700,
-    triggerHook: 0.8,
-    duration: sceneDuration,
-  })
-  .setClassToggle("#introimg1", "visible")
-	// .addIndicators()
-	.addTo(controller);
+  // opacity change on scroll
+  $(window).scroll(function() {
 
-  const introscene2 = new ScrollMagic.Scene({
-    triggerElement: "#introtrigger2",
-    offset: offset * 2,
-    triggerHook: 0.5,
-    duration: sceneDuration,
-  })
-  .setClassToggle("#introimg2", "visible")
-	// .addIndicators()
-	.addTo(controller);
+    let scrollTop = $(this).scrollTop();
+    let imgDivHeight = $(".introimg").height();
+    let currentImg = $(".current");
 
-  const introscene3 = new ScrollMagic.Scene({
-    triggerElement: "#introtrigger3",
-    offset: offset * 3,
-    triggerHook: 0.5,
-    duration: sceneDuration,
-  })
-  .setClassToggle("#introimg3", "visible")
-	// .addIndicators()
-	.addTo(controller);
+    function opacityCalc() {
+      let imgDivHeight = $(currentImg).height();
+      let scrollcalc = (( (imgDivHeight * ($(currentImg).index() + 1) ) - scrollTop) /  imgDivHeight).toFixed(2);
+      let opacityTotal = 1 - scrollcalc;
+      return opacityTotal;
+    };
 
-  const introscene4 = new ScrollMagic.Scene({
-    triggerElement: "#introtrigger4",
-    offset: offset * 4,
-    triggerHook: 0.5,
-    duration: sceneDuration,
-  })
-  .setClassToggle("#introimg4", "visible")
-	// .addIndicators()
-	.addTo(controller);
+    for (let i = 0; i < introImages.length; i++) {
+      let img = introImages[i];
 
-  const introscene5 = new ScrollMagic.Scene({
-    triggerElement: "#introtrigger5",
-    offset: offset * 5,
-    triggerHook: 0.5,
-    duration: sceneDuration,
-  })
-  .setClassToggle("#introimg5", "visible")
-	// .addIndicators()
-	.addTo(controller);
+      if ( scrollTop <= imgDivHeight * ($(img).index() + 1) && scrollTop > imgDivHeight * $(img).index() ) {
+        $(img).addClass("current");
+        } else {
+          $(img).removeClass("current");
+        }
+    };
 
-  const introscene6 = new ScrollMagic.Scene({
-    triggerElement: "#introtrigger6",
-    offset: offset * 6,
-    triggerHook: 0.5,
-    duration: sceneDuration,
-  })
-  .setClassToggle("#introimg6", "visible")
-	// .addIndicators()
-	.addTo(controller);
-
-  const introscene7 = new ScrollMagic.Scene({
-    triggerElement: "#introtrigger7",
-    offset: offset * 7,
-    triggerHook: 0.5,
-    duration: sceneDuration,
-  })
-  .setClassToggle("#introimg7", "visible")
-	// .addIndicators()
-	.addTo(controller);
-
-  const introscene8 = new ScrollMagic.Scene({
-    triggerElement: "#introtrigger8",
-    offset: offset * 8,
-    triggerHook: 0.5,
-    duration: sceneDuration,
-  })
-  .setClassToggle("#introimg8", "visible")
-	// .addIndicators()
-	.addTo(controller);
-
-  const introscene9 = new ScrollMagic.Scene({
-    triggerElement: "#introtrigger9",
-    offset: offset * 9,
-    triggerHook: 0.5,
-    duration: sceneDuration,
-  })
-  .setClassToggle("#introimg9", "visible")
-	// .addIndicators()
-	.addTo(controller);
-
-  const introscene10 = new ScrollMagic.Scene({
-    triggerElement: "#introtrigger10",
-    offset: offset * 10,
-    triggerHook: 0.5,
-    duration: sceneDuration,
-  })
-  .setClassToggle("#introimg10", "visible")
-	// .addIndicators()
-	.addTo(controller);
-
-  const introscene11 = new ScrollMagic.Scene({
-    triggerElement: "#introtrigger11",
-    offset: offset * 11,
-    triggerHook: 0.5,
-    duration: sceneDuration,
-  })
-  .setClassToggle("#introimg11", "visible")
-	// .addIndicators()
-	.addTo(controller);
-
-  const introscene12 = new ScrollMagic.Scene({
-    triggerElement: "#introtrigger12",
-    offset: offset * 12,
-    triggerHook: 0.5,
-    duration: sceneDuration,
-  })
-  .setClassToggle("#introimg12", "visible")
-	// .addIndicators()
-	.addTo(controller);
-
-
-// ---------------------- TITLE SCENE ----------------------
-
-  const titlescene = new ScrollMagic.Scene({
-    triggerElement: "#titletrigger",
-    offset: (offset + (sceneDuration * 12)),
-    triggerHook: 0.4,
-    duration: sceneDuration
-  })
-  // .addIndicators()
-  .addTo(controller);
-
-  const titlekill = new ScrollMagic.Scene({
-   triggerElement: "#titlekill",
-   offset: (offset + (sceneDuration * 13.66)),
-   triggerHook: 0.1,
-   duration: "100%",
-  })
-  // .addIndicators()
-  .addTo(controller);
-
-  // no display to allow dragging in main scene
-  titlekill.on("enter", function (event) {
-     $(titleDiv).addClass("inactive");
-  });
-
-
-  // TEXT ANIMATION
-  const textWrapper = document.querySelector('#cloudtext');
-  textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
-  titlescene.on("enter", function (event) {
-    $(introDiv).addClass("inactive");
-
-    setTimeout(function() {
-      $(titleDiv).removeClass("inactive");
-      anime.timeline({loop: false})
-      .add({
-        targets: '#cloudtext .letter',
-        translateY: [-120, 300],
-        easing: "easeOutExpo",
-        duration: 1400,
-        delay: (el, i) => 100 * i
-      }).add({
-        targets: '#cloudtext',
-        opacity: 0,
-        duration: 2000,
-        easing: "easeOutExpo"
-        // delay: 1000
-      });
-    }, 1000);
+    $(currentImg).css({
+      opacity: opacityCalc()
+    });
 
   });
 
+  // ---------------------------------------------------------------------------
+  //        ---------------------- TITLE SCENE ----------------------
+  // ---------------------------------------------------------------------------
 
-//  ---------------------- MAIN SCENE ----------------------
+  const introSceneHeight = $(".introimg").height() * (introImages.length + 1);
+  const sceneDuration = introSceneHeight / (introImages.length + 1);
+  const offset = 100;
+    const titlescene = new ScrollMagic.Scene({
+      triggerElement: "#leTrigger",
+      offset: (offset + (introSceneHeight)),
+      triggerHook: 0.5,
+      duration: 1
+    })
+    // .addIndicators()
+    .addTo(controller);
+
+    // TEXT ANIMATION
+    const textWrapper = document.querySelector('#cloudtext');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+    titlescene.on("enter", function (event) {
+
+      setTimeout(function() {
+        $(titleDiv).removeClass("inactive");
+        $(introDiv).addClass("inactive");
+        anime.timeline({loop: false})
+        .add({
+          targets: '#cloudtext .letter',
+          translateY: [-120, 300],
+          easing: "easeOutExpo",
+          duration: 1400,
+          delay: (el, i) => 100 * i
+        }).add({
+          targets: '#cloudtext',
+          opacity: 0,
+          duration: 1000,
+          easing: "easeOutExpo",
+          delay: 500
+        });
+      }, 1000);
+
+
+    });
+
+  // ---------------------------------------------------------------------------
+  //          ---------------------- MAIN SCENE ----------------------
+  // ---------------------------------------------------------------------------
 
   const mainscene = new ScrollMagic.Scene({
-   triggerElement: "#maintrigger",
-   offset: ((100) + (sceneDuration * 13)),
-   triggerHook: 0.4,
-   duration: sceneDuration,
- })
+    triggerElement: "#leTrigger",
+    offset: offset + introSceneHeight + 1,
+    triggerHook: 0.5,
+    duration: sceneDuration,
+  })
  // .addIndicators()
  .addTo(controller);
 
  setTimeout(function() {
-     mainscene.on("enter", function (event) {
+   mainscene.on("enter", function (event) {
      $(mainDiv).removeClass("inactive");
      $(mainDiv).addClass("visible");
 
+
      if ($(mainDiv).hasClass("visible")) {
        setTimeout(function() {
+        $(".navbar-div").addClass("visible");
         $(image).css("opacity", "1");
          centerPile();
          pileImages();
          console.log("made it");
-       }, 6000);
+       }, 5000);
      }
-
    });
- }, 5000);
+ }, 1000);
 
  // set up image variables
   const image = $(".image-wrapper");
@@ -294,8 +201,10 @@ $(document).ready(function() {
     }
   };
 
+  // programmatically open fancybox?????????
+
   // fancybox init
-  image.fancybox(
+  $(image).fancybox(
     {
       buttons: [
         "close"
@@ -311,6 +220,8 @@ $(document).ready(function() {
 
     }
   );
+
+  image
 
   // stops fancybox from opening after image is dragged
   function cancelFancybox() {
@@ -334,7 +245,7 @@ $(document).ready(function() {
       delay: 1,
       containment: "main",
       distance: 0,
-      cursor: '/eye.ico'
+      cursor: 'eye.ico'
     }
   );
 
@@ -359,6 +270,7 @@ $(document).ready(function() {
   $(window).bind('resizeEnd', function() {
     centerPile();
     pileImages();
+    setIntroDivHeight();
   });
 
 

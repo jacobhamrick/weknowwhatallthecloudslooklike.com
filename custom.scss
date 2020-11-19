@@ -57,247 +57,202 @@ a:hover {
   cursor: url('/eye.ico');
 }
 
-.scene {
-  height: 100vh;
-  width: 100vw;
-}
 
-.trigger {
-  opacity: 0;
-  min-height: 1px;
-  max-height: 1px;
-  width: 100%;
-}
-
-/* -----------------------------------------------------------------------------
-                           - - - >>> INTROSCENES <<< - - -
------------------------------------------------------------------------------ */
-.introdiv {
-  height: 24000vh;
-}
-
-.introimg {
-  height: 80%;
-  width: 80%;
-  opacity: 0;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: fixed;
-  transition: all 4.5s;
-}
-
-.introimg.visible {
-  opacity: 1;
-  transition: all 4.5s;
-}
-
-
-.introdiv.inactive {
-  z-index: 0;
-  opacity: 0;
-  transition: all 1s;
-  height: 0;
-  width: 0;
-}
-//
-// .carousel-inner {
-//   position: fixed;
-// }
-//
-// .carousel-item {
-//   height: 100vh;
-//   background: no-repeat center center fixed;
-//   -webkit-background-size: cover;
-//   -moz-background-size: cover;
-//   -o-background-size: cover;
-//   background-size: cover;
-// }
-//
-// .carousel-fade {
-//   transform: opacity 1s 3s;
-// }
-
-/* -----------------------------------------------------------------------------
-                           - - - >>> TITLE SCENE <<< - - -
------------------------------------------------------------------------------ */
-
-
-.titlediv {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  opacity: 1;
-  transition: opacity 6s;
-  z-index: 9000;
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-}
-
-.titlediv.inactive {
-  z-index: 0;
-  opacity: 0;
-  height: 0;
-  width: 0;
-}
-
-#cloudtext {
-  color: #fff;
-  text-align: center;
-  font-size: 4.5vw;
-  opacity: 1;
-  top: -120px;
-  white-space: nowrap;
-  width: 100%;
-}
-
-#cloudtext .letter {
-  display: inline-block;
-  line-height: 1em;
-}
-
-
-/* -----------------------------------------------------------------------------
-                              - - - >>> MAIN <<< - - -
------------------------------------------------------------------------------ */
-
-.main.inactive {
-  opacity: 0;
-  display: none;
-}
-
-.main {
-  display: flex;
-  height: calc(100% - ((#{$body-padding} * 3) * 2));
-  width:  calc(100% - ((#{$body-padding} * 3) * 2));
-  margin: calc(#{$body-padding} * 3);
-  position: absolute; // changed via JS
-  justify-content: space-between;
-  flex-wrap: wrap;
-  flex-direction: row;
-  place-content: flex-start;
-  z-index: 2000;
-}
-
-.main.visible {
-		opacity: 1;
-    z-index: 9000;
-    position: fixed;
-	}
-
-
-#page-title {
-  text-align: center;
-  font-size: 24px;
-
-}
-
-/* -----------------------------------------------------------------------------
-                        - - - >>> ABOUT-WINDOW <<< - - -
------------------------------------------------------------------------------ */
-
-.about-window  {
-  z-index: 0;
-  position: fixed;
-  background-color: #000;
-  padding: $body-padding;
-  opacity: 0;
-  visibility: hidden;
-  overflow-y: auto;
-  height: 100%;
-  transition: all 0.3s;
-  .row:first-child {
-    justify-content: flex-end;
-  }
-  .row {
-    #close-me {
-      font-size: 12px;
-    }
-  }
-  #intro-title {
-    color: #fff;
-    font-size: 24px;
-    text-align: center;
-    width: 100%;
-    margin: 25px auto;
-  }
-  #intro-text {
-    margin: 0;
-    text-align: justify;
-    font-size: 13px;
-  }
-}
-
-.display-switch {
-  opacity: 1;
-  transition: all 0.3s;
-  visibility: visible;
-  z-index: 9000;
-}
-
-/* -----------------------------------------------------------------------------
-                         - - - >>> NAVBAR-DIV <<< - - -
------------------------------------------------------------------------------ */
-
-.navbar-div.row {
-  margin: 0 auto;
-  position: fixed;
-  top: 90%;
-  left: 36%;
-  width: 300px;
-  text-align: center;
-  justify-content: space-between;
-  list-style: none;
-  padding: 0;
-  .nav-item {
-    color: #fff;
-    font-size: 40px;
-    margin-right: 20px;
-    i {
-      font-size: 24px;
-    }
-  }
-}
-
-/* -----------------------------------------------------------------------------
-                         - - - >>> IMAGES <<< - - -
------------------------------------------------------------------------------ */
-.image-container {
-  width: calc(100% - (#{$body-padding} * 2));
-  height: calc(100% - (#{$body-padding} * 2));
-  position: fixed;
-}
-
-
-
-.image-wrapper {
-  opacity: 0;
-  top: auto;
-  left: auto;
-  .image {
-    max-width: 100px;
-    transition: all 0.3s;
-  }
-}
-
-
-
-.fancybox-infobar {
-  display: none;
-}
 
 
 /* #############################################################################
    #############################################################################
                          - - - >>> BIG SCREENS <<< - -
-#############################################################################
-#############################################################################*/
+   #############################################################################
+   ########################################################################## */
+
+
 @media (min-width: 829px) {
 
-  .about-window  {
-    #intro-text {
-      font-size: 16px;
+  #smallScreenDiv {
+    display: none;
+  }
+  .scene {
+    height: 100vh;
+    width: 100vw;
+    display: block;
+  }
+
+  .trigger {
+    opacity: 0;
+    min-height: 1px;
+    max-height: 1px;
+    width: 100%;
+  }
+
+  /* -----------------------------------------------------------------------------
+                             - - - >>> INTROSCENES <<< - - -
+  ----------------------------------------------------------------------------- */
+  .introdiv {
+    position: absolute;
+    transition: all 3s;
+  }
+
+  .introimg {
+    height: 80vh;
+    width: 80vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    opacity: 0;
+    z-index: 1;
+    margin: 10vw;
+  }
+
+  .introimg.current {
+    z-index: 3;
+  }
+
+  .introdiv.inactive {
+    z-index: 0;
+    opacity: 0;
+    transition: all 3s;
+  }
+
+
+  /* -----------------------------------------------------------------------------
+                             - - - >>> TITLE SCENE <<< - - -
+  ----------------------------------------------------------------------------- */
+
+
+  .titlediv {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    opacity: 1;
+    z-index: 9000;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .titlediv.inactive {
+    z-index: 0;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+
+  #cloudtext {
+    color: #fff;
+    text-align: center;
+    font-size: 4.5vw;
+    opacity: 1;
+    top: -120px;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  #cloudtext .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
+
+
+  /* -----------------------------------------------------------------------------
+                                - - - >>> MAIN <<< - - -
+  ----------------------------------------------------------------------------- */
+
+  .main.inactive {
+    opacity: 0;
+    display: none;
+  }
+
+  .main {
+    display: flex;
+    height: calc(100% - ((#{$body-padding} * 3) * 2));
+    width:  calc(100% - ((#{$body-padding} * 3) * 2));
+    margin: calc(#{$body-padding} * 3);
+    position: absolute; // changed via JS
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    place-content: flex-start;
+    z-index: 2000;
+  }
+
+  .main.visible {
+  		opacity: 1;
+      z-index: 8000;
+      position: fixed;
+  	}
+
+
+  #page-title {
+    text-align: center;
+    font-size: 24px;
+
+  }
+
+
+  /* -----------------------------------------------------------------------------
+                           - - - >>> NAVBAR-DIV <<< - - -
+  ----------------------------------------------------------------------------- */
+
+  .navbar-div {
+    margin: 0 auto;
+    position: fixed;
+    top: 90%;
+    left: 36%;
+    opacity: 0;
+    width: 300px;
+    text-align: center;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    .nav-item {
+      font-size: 40px;
+      margin-right: 20px;
+      i {
+        font-size: 24px;
+      }
+    }
+  }
+  .nav-item:first-child {
+    i {
+      color: red;
+    }
+  }
+  .nav-item:nth-child(2) {
+    i {
+      color: blue;
+    }
+  }
+  .nav-item:nth-child(3) {
+    i {
+      color: green;
+    }
+  }
+
+  .navbar-div.visible {
+    opacity: 1;
+    transition: all 5s;
+    z-index: 9000;
+  }
+
+  /* -----------------------------------------------------------------------------
+                           - - - >>> IMAGES <<< - - -
+  ----------------------------------------------------------------------------- */
+  .image-container {
+    width: calc(100% - (#{$body-padding} * 2));
+    height: calc(100% - (#{$body-padding} * 2));
+    position: fixed;
+  }
+
+
+
+  .image-wrapper {
+    opacity: 0;
+    top: auto;
+    left: auto;
+    .image {
+      max-width: 100px;
+      transition: all 0.3s;
     }
   }
 
@@ -321,6 +276,12 @@ a:hover {
   .fancybox-slide {
     padding: 0;
   }
+
+
+  .fancybox-infobar {
+    display: none;
+  }
+
 
 
 /* -----------------------------------------------------------------------------
