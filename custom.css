@@ -15,27 +15,372 @@ body {
 .row {
   display: flex;
   flex-direction: row;
-  width: 100%; }
+  width: 100%;
+  margin: 0; }
 
 /* -----------------------------------------------------------------------------
                            - - - >>> TYPOGRAPHY <<< - - -
 ----------------------------------------------------------------------------- */
-p, a {
-  font-family: "Arial", sans-serif; }
-
-p {
+p, a, h1, h2, h3, h4, h5 {
+  font-family: "Arial", sans-serif;
   color: #fff; }
 
 a {
   text-decoration: none;
-  color: #fff; }
+  cursor: url("/eye.ico"), auto; }
 
-a:hover {
-  color: #A4FA3E;
-  cursor: url("/eye.ico"); }
+.image-wrapper:hover {
+  cursor: url("/eye.ico"), auto; }
 
-.draggable {
-  cursor: url("/eye.ico"); }
+/* -----------------------------------------------------------------------------
+                         - - - >>> SCROLLHINTER <<< - - -
+----------------------------------------------------------------------------- */
+#scrollhintdiv,
+#scrollhintdiv.active {
+  opacity: 1;
+  transition: all 2s;
+  color: #fff;
+  margin: 1rem auto 2rem auto;
+  bottom: 0;
+  left: 50%;
+  position: fixed;
+  min-width: 200px;
+  transform: translate(-50%, 0);
+  max-width: 300px;
+  text-align: center;
+  height: 88px; }
+  #scrollhintdiv div,
+  #scrollhintdiv.active div {
+    margin-bottom: 1rem; }
+  #scrollhintdiv .moveUpDown,
+  #scrollhintdiv.active .moveUpDown {
+    animation: MoveUpDown 3s linear infinite;
+    margin: 0 auto;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #fff;
+    width: 100%; }
+
+#scrollhintdiv.inactive {
+  opacity: 0;
+  transition: all 3s; }
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    bottom: 0; }
+  50% {
+    bottom: 20px; } }
+
+.scene {
+  height: 100vh;
+  width: 100vw;
+  display: block; }
+
+.trigger {
+  opacity: 0;
+  min-height: 1px;
+  max-height: 1px;
+  width: 100%; }
+
+/* -----------------------------------------------------------------------------
+                         - - - >>> MOBILEHINTER <<< - - -
+----------------------------------------------------------------------------- */
+#mobilehintdiv {
+  z-index: 9999;
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0;
+  height: 25px;
+  width: 100%;
+  background: #404040; }
+  #mobilehintdiv div {
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 20px;
+    line-height: 25px;
+    text-align: center;
+    width: 100%; }
+    #mobilehintdiv div p {
+      font-size: 10px;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0; }
+    #mobilehintdiv div i {
+      margin-left: 20px; }
+
+/* -----------------------------------------------------------------------------
+                           - - - >>> INTROSCENES <<< - - -
+----------------------------------------------------------------------------- */
+.introdiv {
+  position: absolute;
+  transition: all 3s; }
+
+.introimg {
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-size: 165%;
+  background-repeat: no-repeat;
+  position: fixed;
+  opacity: 0;
+  z-index: 1;
+  padding: 10vh 10vw; }
+
+.introimg.current {
+  z-index: 3; }
+
+.introdiv.inactive {
+  z-index: 0;
+  opacity: 0;
+  height: 0;
+  transition: all 1s; }
+
+/* -----------------------------------------------------------------------------
+                           - - - >>> TITLE SCENE <<< - - -
+----------------------------------------------------------------------------- */
+.titlediv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 1;
+  z-index: 9000;
+  position: fixed;
+  padding: 20px;
+  transition: all 3s; }
+  .titlediv .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 2vw;
+    height: 4vw; }
+
+.cloudtext,
+.titlediv > .row {
+  height: 9vw;
+  line-height: 9vw; }
+
+.titlediv.inactive {
+  opacity: 0;
+  transition: all 3s; }
+
+.cloudtext,
+.cloudtext.dummy {
+  position: relative; }
+
+.cloudtext {
+  margin-left: -2vw; }
+
+.cloudtext.dummy {
+  margin: 0 2vw;
+  width: 1vw; }
+
+/* -----------------------------------------------------------------------------
+                              - - - >>> MAIN <<< - - -
+----------------------------------------------------------------------------- */
+.main.inactive {
+  opacity: 0;
+  display: none; }
+
+.image-wrapper {
+  opacity: 0;
+  top: auto;
+  left: auto;
+  transition: position 0s; }
+  .image-wrapper .image-thumb {
+    max-width: 30px; }
+
+.main {
+  display: block;
+  margin: 0;
+  position: absolute;
+  z-index: 2000;
+  padding: 20px;
+  width: 100%; }
+
+.main.grid-view {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 18% 9%; }
+
+.main.visible {
+  opacity: 1;
+  z-index: 8000;
+  position: fixed; }
+
+#page-title {
+  text-align: center;
+  font-size: 24px; }
+
+.fancybox-container,
+.fancybox-infobar,
+.fancybox-button {
+  font-family: "Arial", sans-serif; }
+
+.fancybox-is-open
+.fancybox-bg,
+.fancybox-button,
+.fancybox-infobar {
+  background: #000;
+  opacity: 1; }
+
+.fancybox-slide {
+  padding: 0; }
+
+.fancybox-infobar {
+  display: none; }
+
+.fancybox-button {
+  background: none; }
+
+.fancybox-thumbs {
+  background: #fff;
+  width: 326px;
+  padding: 0;
+  background: linear-gradient(1deg, #f9f9f9, #99d5e2);
+  background-size: 400% 400%;
+  -webkit-animation: AnimationName 20s ease infinite;
+  -moz-animation: AnimationName 20s ease infinite;
+  animation: AnimationName 20s ease infinite; }
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 50% 0%; }
+  50% {
+    background-position: 51% 100%; }
+  100% {
+    background-position: 50% 0%; } }
+
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 50% 0%; }
+  50% {
+    background-position: 51% 100%; }
+  100% {
+    background-position: 50% 0%; } }
+
+@keyframes AnimationName {
+  0% {
+    background-position: 50% 0%; }
+  50% {
+    background-position: 51% 100%; }
+  100% {
+    background-position: 50% 0%; } }
+
+.fancybox-show-thumbs .fancybox-inner {
+  right: 346px; }
+
+.fancybox-thumbs-y .fancybox-thumbs__list::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 0; }
+
+.fancybox-thumbs-y .fancybox-thumbs__list::-webkit-scrollbar-track {
+  border-radius: 0;
+  box-shadow: none; }
+
+.fancybox-thumbs__list a {
+  background-color: rgba(0, 0, 0, 0);
+  height: 108px; }
+
+.fancybox-thumbs__list a:before {
+  border: 1px red dotted; }
+
+#closebutton {
+  float: right;
+  margin-bottom: 2vw; }
+  #closebutton a {
+    font-size: 14px; }
+
+#closebutton:hover a {
+  color: red;
+  text-decoration: none; }
+
+/* -----------------------------------------------------------------------------
+                           - - - >>> INFOBOX <<< - - -
+----------------------------------------------------------------------------- */
+#infobox {
+  display: block;
+  height: 100%;
+  width: 100vw;
+  padding: 6vw;
+  margin: auto;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s;
+  background-color: #000;
+  position: fixed;
+  z-index: 9000;
+  overflow: scroll;
+  z-index: 9999; }
+  #infobox p {
+    color: #fff;
+    margin-top: 1vw; }
+  #infobox #infotitle {
+    width: 100%; }
+    #infobox #infotitle .row {
+      text-align: center; }
+  #infobox .dummy {
+    width: 20px; }
+
+#infobox.inactive {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s; }
+
+.infotext {
+  width: 30px; }
+
+#infobox::-webkit-scrollbar {
+  width: 10px; }
+
+#infobox::-webkit-scrollbar-track {
+  border-color: #fff; }
+
+#infobox::-webkit-scrollbar-thumb {
+  background-color: #fff; }
+
+/* -----------------------------------------------------------------------------
+                         - - - >>> NAVBAR-DIV <<< - - -
+----------------------------------------------------------------------------- */
+.navbar-div {
+  padding: 0 10%;
+  position: fixed;
+  bottom: 0;
+  margin: 0 0 10px 0;
+  opacity: 0;
+  width: 100%;
+  text-align: center;
+  justify-content: space-between;
+  list-style: none; }
+  .navbar-div .nav-item {
+    font-size: 40px;
+    margin-right: 20px; }
+    .navbar-div .nav-item i {
+      font-size: 24px; }
+  .navbar-div .nav-item:last-child {
+    margin-right: 0; }
+
+.nav-item:first-child i {
+  color: red; }
+
+.nav-item:nth-child(2) i {
+  color: blue; }
+
+.nav-item:nth-child(3) i {
+  color: green; }
+
+.navbar-div.visible {
+  opacity: 1;
+  transition: all 5s;
+  z-index: 9000; }
 
 /* #############################################################################
    #############################################################################
@@ -43,151 +388,49 @@ a:hover {
    #############################################################################
    ########################################################################## */
 @media (min-width: 829px) {
-  #smallScreenDiv {
+  /* #############################################################################
+                         - - - >>> MOBILEHINTER <<< - - -
+############################################################################# */
+  #mobilehintdiv {
     display: none; }
-  .scene {
+  /* #############################################################################
+                           - - - >>> INTROSCENES <<< - - -
+############################################################################# */
+  .introimg {
     height: 100vh;
     width: 100vw;
-    display: block; }
-  .trigger {
-    opacity: 0;
-    min-height: 1px;
-    max-height: 1px;
-    width: 100%; }
-  /* -----------------------------------------------------------------------------
-                             - - - >>> INTROSCENES <<< - - -
-  ----------------------------------------------------------------------------- */
-  .introdiv {
-    position: absolute;
-    transition: all 3s; }
-  .introimg {
-    height: 80vh;
-    width: 80vw;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: fixed;
-    opacity: 0;
-    z-index: 1;
-    margin: 10vw; }
+    padding: 10vh 10vw;
+    background-size: 95%; }
   .introimg.current {
     z-index: 3; }
   .introdiv.inactive {
     z-index: 0;
     opacity: 0;
-    transition: all 3s; }
-  /* -----------------------------------------------------------------------------
-                             - - - >>> TITLE SCENE <<< - - -
-  ----------------------------------------------------------------------------- */
-  .titlediv {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    opacity: 1;
-    z-index: 9000;
-    position: fixed;
-    height: 100vh;
-    width: 100vw; }
-  .titlediv.inactive {
-    z-index: 0;
-    opacity: 0;
     height: 0;
-    width: 0; }
-  #cloudtext {
-    color: #fff;
-    text-align: center;
-    font-size: 4.5vw;
-    opacity: 1;
-    top: -120px;
-    white-space: nowrap;
-    width: 100%; }
-  #cloudtext .letter {
-    display: inline-block;
-    line-height: 1em; }
-  /* -----------------------------------------------------------------------------
-                                - - - >>> MAIN <<< - - -
-  ----------------------------------------------------------------------------- */
-  .main.inactive {
-    opacity: 0;
-    display: none; }
-  .main {
-    display: flex;
-    height: calc(100% - ((20px * 3) * 2));
-    width: calc(100% - ((20px * 3) * 2));
-    margin: calc(20px * 3);
-    position: absolute;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    flex-direction: row;
-    place-content: flex-start;
-    z-index: 2000; }
-  .main.visible {
-    opacity: 1;
-    z-index: 8000;
-    position: fixed; }
-  #page-title {
-    text-align: center;
-    font-size: 24px; }
-  /* -----------------------------------------------------------------------------
-                           - - - >>> NAVBAR-DIV <<< - - -
-  ----------------------------------------------------------------------------- */
+    transition: all 1s; }
+  /* #############################################################################
+                           - - - >>> TITLE SCENE <<< - - -
+############################################################################# */
+  .cloudtext,
+  .titlediv > .row {
+    height: 7vw; }
+  .cloudtext.dummy {
+    margin: 0 1vw;
+    width: .5vw; }
+  #infobox {
+    overflow: hidden;
+    height: 100vh;
+    padding: 3vw; }
+  /* #############################################################################
+                         - - - >>> MAIN SCENE <<< - - -
+############################################################################# */
+  .main.grid-view {
+    padding: 6%; }
+  .image-wrapper .image-thumb {
+    max-width: 50px; }
+  /* ############################################################################
+                         - - - >>> NAVBAR-DIV <<< - - -
+############################################################################  */
   .navbar-div {
-    margin: 0 auto;
-    position: fixed;
-    bottom: 0;
-    left: 36%;
-    opacity: 0;
-    width: 300px;
-    text-align: center;
-    justify-content: space-between;
-    list-style: none;
-    padding: 0; }
-    .navbar-div .nav-item {
-      font-size: 40px;
-      margin-right: 20px; }
-      .navbar-div .nav-item i {
-        font-size: 24px; }
-  .nav-item:first-child i {
-    color: red; }
-  .nav-item:nth-child(2) i {
-    color: blue; }
-  .nav-item:nth-child(3) i {
-    color: green; }
-  .navbar-div.visible {
-    opacity: 1;
-    transition: all 5s; }
-  /* -----------------------------------------------------------------------------
-                           - - - >>> IMAGES <<< - - -
-  ----------------------------------------------------------------------------- */
-  .image-container {
-    width: calc(100% - (20px * 2));
-    height: calc(100% - (20px * 2));
-    position: fixed; }
-  .image-wrapper {
-    opacity: 0;
-    top: auto;
-    left: auto; }
-    .image-wrapper .image {
-      max-width: 100px;
-      transition: all 0.3s; }
-  /* -----------------------------------------------------------------------------
-                         - - - >>> FANCYBOX <<< - - -
------------------------------------------------------------------------------ */
-  .fancybox-container,
-  .fancybox-infobar,
-  .fancybox-button {
-    font-family: "Arial", sans-serif; }
-  .fancybox-is-open
-.fancybox-bg,
-  .fancybox-button,
-  .fancybox-infobar {
-    background: #000;
-    opacity: 1; }
-  .fancybox-slide {
-    padding: 0; }
-  .fancybox-infobar {
-    display: none; }
-  /* -----------------------------------------------------------------------------
-                         - - - >>> IMAGES <<< - - -
------------------------------------------------------------------------------ */
-  .image-wrapper {
-    transition: all 0.3s; } }
+    padding: 0 30%;
+    margin: 0; } }
