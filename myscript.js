@@ -1,12 +1,12 @@
 $(document).ready(function () {
-  let introDiv = $(".introdiv");
-  let titleDiv = $(".titlediv");
-  let mainDiv = $(".main");
-  let mainIcons = [];
-  let introScenes = [];
+  $(this).scrollTop(0);
+
+  const introDiv = $(".introdiv");
+  const titleDiv = $(".titlediv");
+  const mainDiv = $(".main");
   let controller = new ScrollMagic.Controller();
 
-  introScenes = [
+  let introImgArray = [
     { imgUrl: "img/introscenes/OG_IMG_001.jpg" },
     { imgUrl: "img/introscenes/OG_IMG_002.jpg" },
     { imgUrl: "img/introscenes/OG_IMG_003.jpg" },
@@ -20,7 +20,7 @@ $(document).ready(function () {
     { imgUrl: "img/introscenes/OG_IMG_011.jpg" },
     { imgUrl: "img/introscenes/OG_IMG_012.jpg" },
   ];
-  mainIcons = [
+  let mainIcons = [
     {
       thumb: "/img/thumbs/001_lil_weknow.png",
       standard: "/img/001_weknow.jpg",
@@ -415,12 +415,15 @@ $(document).ready(function () {
   // Give User Hint to Scroll
 
   // SCROLL HINTER
+
+  // display scroll hint if user doesn't scroll
   if (window.scrollY == 0) {
     setTimeout(() => {
       $("#scrollhintdiv").removeClass("inactive");
     }, 5000);
   }
 
+  // makes scroll hint inactive if user scrolls
   $(window).scroll(() => {
     let windowScroll = $(window).scrollTop();
 
@@ -442,30 +445,30 @@ $(document).ready(function () {
   // -----------------------------------------------------------------------------
 
   // Set Height of Intro Div
-  let introDivHeight = $(".introdiv").height() * introScenes.length;
+  let introDivHeight = $(".introdiv").height() * introImgArray.length;
   $(".introdiv").css("height", introDivHeight);
 
   // Randomize intro image sequence
-  introScenes = shuffle(introScenes);
+  introImgArray = shuffle(introImgArray);
 
   // Print Intro Scenes to Intro Div
-  function buildIntroDivs() {
-    for (let i = 0; i < introScenes.length; i++) {
-      let currentScene = $(introScenes)[i];
+  function printIntroImgs() {
+    for (let i = 0; i < introImgArray.length; i++) {
+      let currentScene = $(introImgArray)[i];
       $(introDiv).append(
         "<div class='introimg' id='introimg-" + (i + 1) + "'></div>"
       );
     }
   }
-  buildIntroDivs();
-
-  let introImgDivs = $(".introimg");
+  printIntroImgs();
+  // must call after intro images printed
+  let introImgs = $(".introimg");
 
   // match scenes with background-image urls
   function matchSceneWithUrl() {
-    for (let i = 0; i < introImgDivs.length; i++) {
-      let currentImg = $(introImgDivs)[i];
-      let currentScene = $(introScenes)[i];
+    for (let i = 0; i < introImgs.length; i++) {
+      let currentImg = $(introImgs)[i];
+      let currentScene = $(introImgArray)[i];
       currentImg.style.backgroundImage =
         "url('" + $(currentScene).prop("imgUrl") + "')";
     }
@@ -475,25 +478,25 @@ $(document).ready(function () {
   // Fade images in and out by attaching opacity to scroll
   $(window).scroll(() => {
     let scrollTop = $(this).scrollTop();
-    let imgDivHeight = $(introImgDivs).height();
+    let introImgHeight = $(introImgs).height();
     let currentImg = $(".current");
 
     function opacityCalc() {
-      let imgDivHeight = $(currentImg).height();
+      let introImgHeight = $(currentImg).height();
       let scrollcalc = (
-        ((imgDivHeight * ($(currentImg).index() + 1) - scrollTop) /
-          imgDivHeight) *
+        ((introImgHeight * ($(currentImg).index() + 1) - scrollTop) /
+          introImgHeight) *
         2
       ).toFixed(2);
       let opacityTotal = 1 - scrollcalc;
       return opacityTotal;
     }
 
-    for (let i = 0; i < introImgDivs.length; i++) {
-      let img = introImgDivs[i];
+    for (let i = 0; i < introImgs.length; i++) {
+      let img = introImgs[i];
       if (
-        scrollTop <= imgDivHeight * ($(img).index() + 1) &&
-        scrollTop > imgDivHeight * $(img).index() + 1
+        scrollTop <= introImgHeight * ($(img).index() + 1) &&
+        scrollTop > introImgHeight * $(img).index() + 1
       ) {
         $(img).addClass("current");
       } else {
@@ -510,8 +513,8 @@ $(document).ready(function () {
   // ------------------------------ TITLE SCENE ----------------------------------
   // -----------------------------------------------------------------------------
 
-  const sceneDuration = introDivHeight / (introScenes.length + 1);
-  const introOffset = 600;
+  const sceneDuration = introDivHeight / (introImgArray.length + 1);
+  const introOffset = 400;
 
   // TITLE SCENE INIT VIA SCROLL MAGIC TRIGGER
   const titlescene = new ScrollMagic.Scene({
@@ -818,7 +821,7 @@ $(document).ready(function () {
   });
 }); //end document.ready
 
-$(window).on("load", () => {
+$(window).on("load", function () {
   // start at 0 every page load
   $(this).scrollTop(0);
 });

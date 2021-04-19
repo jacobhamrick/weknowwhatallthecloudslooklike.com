@@ -1,21 +1,19 @@
-
-
 /* SASS CLASSES */
-$primary-font: 'Arial', sans-serif;
+$primary-font: "Arial", sans-serif;
 $borders: 1px solid #fff;
 $body-padding: 20px;
 $white: #fff;
-$green: #A4FA3E;
-
+$green: #a4fa3e;
 
 * {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100vh;
   background: #000;
-  cursor: url('/cloudy.ico'), auto;
+  cursor: url("/cloudy.ico"), auto;
   scroll-behavior: smooth;
   position: absolute;
 }
@@ -31,29 +29,32 @@ body {
   margin: 0;
 }
 
-
 /* -----------------------------------------------------------------------------
                            - - - >>> TYPOGRAPHY <<< - - -
 ----------------------------------------------------------------------------- */
-p, a, h1, h2, h3, h4, h5 {
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: $primary-font;
   color: $white;
 }
 
 a {
   text-decoration: none;
-  cursor: url('/eye.ico'), auto;
+  cursor: url("/eye.ico"), auto;
 }
 
-
 .image-wrapper:hover {
-  cursor: url('/eye.ico'), auto;
+  cursor: url("/eye.ico"), auto;
 }
 
 /* -----------------------------------------------------------------------------
                          - - - >>> SCROLLHINTER <<< - - -
 ----------------------------------------------------------------------------- */
-
 
 #scrollhintdiv,
 #scrollhintdiv.active {
@@ -89,17 +90,15 @@ a {
   transition: all 3s;
 }
 
-
-
 @keyframes MoveUpDown {
-  0%, 100% {
+  0%,
+  100% {
     bottom: 0;
   }
   50% {
     bottom: 20px;
   }
 }
-
 
 .scene {
   height: 100vh;
@@ -124,7 +123,7 @@ a {
   flex-direction: row;
   position: fixed;
   bottom: 0;
-  height: 25px;
+  height: 32px;
   width: 100%;
   background: #404040;
   div {
@@ -133,7 +132,7 @@ a {
     flex-direction: row;
     justify-content: space-between;
     margin: 0 20px;
-    line-height:25px;
+    line-height: 32px;
     text-align: center;
     width: 100%;
     p {
@@ -148,13 +147,12 @@ a {
   }
 }
 
-
 /* -----------------------------------------------------------------------------
                            - - - >>> INTROSCENES <<< - - -
 ----------------------------------------------------------------------------- */
 .introdiv {
   position: absolute;
-  transition: all 3s;
+  transition: opacity 3s;
 }
 
 .introimg {
@@ -180,11 +178,9 @@ a {
   transition: all 1s;
 }
 
-
 /* -----------------------------------------------------------------------------
                            - - - >>> TITLE SCENE <<< - - -
 ----------------------------------------------------------------------------- */
-
 
 .titlediv {
   display: flex;
@@ -229,8 +225,6 @@ a {
   width: 1vw;
 }
 
-
-
 /* -----------------------------------------------------------------------------
                               - - - >>> MAIN <<< - - -
 ----------------------------------------------------------------------------- */
@@ -245,6 +239,7 @@ a {
   top: auto;
   left: auto;
   transition: position 0s;
+  height: 50px; // matches image-thumb
   .image-thumb {
     max-width: 30px;
   }
@@ -264,14 +259,17 @@ a {
   justify-content: space-between;
   text-align: center;
   flex-wrap: wrap;
-  flex-direction: column;
-  padding: 18% 9%;
+  flex-direction: row;
+  padding: 10px 10px 18% 10px;
 }
 
 .main.visible {
-	opacity: 1;
+  opacity: 1;
   z-index: 8000;
   position: fixed;
+  .image-wrapper {
+    z-index: 9000;
+  }
 }
 
 #page-title {
@@ -279,15 +277,13 @@ a {
   font-size: 24px;
 }
 
-
 .fancybox-container,
 .fancybox-infobar,
 .fancybox-button {
   font-family: $primary-font;
 }
 
-.fancybox-is-open
-.fancybox-bg,
+.fancybox-is-open .fancybox-bg,
 .fancybox-button,
 .fancybox-infobar {
   background: #000;
@@ -297,7 +293,6 @@ a {
 .fancybox-slide {
   padding: 0;
 }
-
 
 .fancybox-infobar {
   display: none;
@@ -319,19 +314,41 @@ a {
 }
 
 @-webkit-keyframes AnimationName {
-    0%{background-position:50% 0%}
-    50%{background-position:51% 100%}
-    100%{background-position:50% 0%}
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 51% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
 }
 @-moz-keyframes AnimationName {
-    0%{background-position:50% 0%}
-    50%{background-position:51% 100%}
-    100%{background-position:50% 0%}
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 51% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
 }
 @keyframes AnimationName {
-    0%{background-position:50% 0%}
-    50%{background-position:51% 100%}
-    100%{background-position:50% 0%}
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 51% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+.fancybox-button--thumbs {
+  display: none;
 }
 
 .fancybox-show-thumbs .fancybox-inner {
@@ -349,7 +366,7 @@ a {
 }
 
 .fancybox-thumbs__list a {
-  background-color: rgba(0,0,0,.0);
+  background-color: rgba(0, 0, 0, 0);
   height: 108px;
 }
 
@@ -357,21 +374,17 @@ a {
   border: 1px red dotted;
 }
 
-
-
-
-
 #closebutton {
   float: right;
-  margin-bottom: 2vw;
+  margin: 2vw;
   a {
     font-size: 14px;
   }
 }
 #closebutton:hover {
   a {
-  color: red;
-  text-decoration: none;
+    color: red;
+    text-decoration: none;
   }
 }
 
@@ -415,7 +428,7 @@ a {
 }
 
 .infotext {
-width: 30px;
+  width: 30px;
 }
 
 #infobox::-webkit-scrollbar {
@@ -430,13 +443,12 @@ width: 30px;
   background-color: $white;
 }
 
-
 /* -----------------------------------------------------------------------------
                          - - - >>> NAVBAR-DIV <<< - - -
 ----------------------------------------------------------------------------- */
 
 .navbar-div {
-  padding: 0 10%;
+  padding: 0 10% 32px 10%; // 32px = height of mobilehintdiv in case user doesn't close
   position: fixed;
   bottom: 0;
   margin: 0 0 10px 0;
@@ -446,7 +458,7 @@ width: 30px;
   justify-content: space-between;
   list-style: none;
   .nav-item {
-    font-size: 40px;
+    // font-size: 40px;
     margin-right: 20px;
     i {
       font-size: 24px;
@@ -478,11 +490,8 @@ width: 30px;
 .navbar-div.visible {
   opacity: 1;
   transition: all 5s;
-  z-index: 9000;
+  z-index: 9500;
 }
-
-
-
 
 /* #############################################################################
    #############################################################################
@@ -491,18 +500,16 @@ width: 30px;
    ########################################################################## */
 
 @media (min-width: 829px) {
-
-/* #############################################################################
+  /* #############################################################################
                          - - - >>> MOBILEHINTER <<< - - -
 ############################################################################# */
   #mobilehintdiv {
     display: none;
   }
 
-/* #############################################################################
+  /* #############################################################################
                            - - - >>> INTROSCENES <<< - - -
 ############################################################################# */
-
 
   .introimg {
     height: 100vh;
@@ -522,8 +529,7 @@ width: 30px;
     transition: all 1s;
   }
 
-
-/* #############################################################################
+  /* #############################################################################
                            - - - >>> TITLE SCENE <<< - - -
 ############################################################################# */
 
@@ -534,7 +540,7 @@ width: 30px;
 
   .cloudtext.dummy {
     margin: 0 1vw;
-    width: .5vw;
+    width: 0.5vw;
   }
 
   #infobox {
@@ -543,7 +549,7 @@ width: 30px;
     padding: 3vw;
   }
 
-/* #############################################################################
+  /* #############################################################################
                          - - - >>> MAIN SCENE <<< - - -
 ############################################################################# */
 
@@ -557,13 +563,16 @@ width: 30px;
     }
   }
 
-/* ############################################################################
+  .fancybox-button--thumbs {
+    display: inline-block;
+  }
+
+  /* ############################################################################
                          - - - >>> NAVBAR-DIV <<< - - -
 ############################################################################  */
 
   .navbar-div {
     padding: 0 30%;
-    margin: 0;
+    margin: 0 0 10px 0;
   }
-
 }
