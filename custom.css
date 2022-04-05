@@ -13,6 +13,32 @@ body {
 body {
   margin: 0; }
 
+::selection {
+  background-color: transparent;
+  color: #a4fa3e; }
+
+::-moz-selection {
+  background-color: transparent;
+  color: #a4fa3e; }
+
+.loading {
+  pointer-events: none; }
+  .loading .nav-link-text {
+    text-shadow: 0 0 20px #fff;
+    transition: all 0.8s; }
+
+.nav-link-text {
+  text-shadow: none;
+  background-color: transparent;
+  transition: all 0.8s;
+  margin-bottom: 0; }
+
+.nav-link {
+  padding: 1rem 1.5rem; }
+
+a {
+  pointer-events: auto; }
+
 .row {
   display: flex;
   flex-direction: row;
@@ -214,7 +240,7 @@ a {
 
 .main.grid-view {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   text-align: center;
   flex-wrap: wrap;
   flex-direction: row;
@@ -307,14 +333,14 @@ a {
   border: 1px red dotted; }
 
 #closebutton {
-  float: right;
-  margin: 2vw; }
-  #closebutton a {
-    font-size: 14px; }
+  position: absolute;
+  bottom: 0;
+  transition: all 0.8s; }
 
-#closebutton:hover a {
-  color: red;
-  text-decoration: none; }
+#closebutton:hover p {
+  color: #a4fa3e;
+  text-decoration: none;
+  transition: all 0.8s; }
 
 /* -----------------------------------------------------------------------------
                            - - - >>> INFOBOX <<< - - -
@@ -323,7 +349,7 @@ a {
   display: block;
   height: 100%;
   width: 100vw;
-  padding: 6vw;
+  padding: 2vw;
   margin: auto;
   visibility: visible;
   opacity: 1;
@@ -364,29 +390,28 @@ a {
                          - - - >>> NAVBAR-DIV <<< - - -
 ----------------------------------------------------------------------------- */
 .navbar-div {
-  padding: 0 10% 32px 10%;
+  padding: 0;
   position: fixed;
   bottom: 0;
-  margin: 0 0 10px 0;
+  margin: 0;
   opacity: 0;
   width: 100%;
   text-align: center;
   justify-content: space-between;
   list-style: none; }
   .navbar-div .nav-item {
+    background: none;
     margin-right: 20px; }
-    .navbar-div .nav-item i {
-      font-size: 24px; }
   .navbar-div .nav-item:last-child {
     margin-right: 0; }
 
-.nav-item:first-child i {
+.nav-item:first-child:hover p {
   color: red; }
 
-.nav-item:nth-child(2) i {
+.nav-item:nth-child(2):hover p {
   color: blue; }
 
-.nav-item:nth-child(3) i {
+.nav-item:nth-child(3):hover p {
   color: green; }
 
 .navbar-div.visible {
@@ -432,19 +457,18 @@ a {
   #infobox {
     overflow: hidden;
     height: 100vh;
-    padding: 3vw; }
+    padding: 2vw; }
   /* #############################################################################
                          - - - >>> MAIN SCENE <<< - - -
 ############################################################################# */
   .main.grid-view {
     padding: 6%; }
-  .image-wrapper .image-thumb {
-    max-width: 50px; }
+  .image-wrapper {
+    margin: 10px; }
+    .image-wrapper .image-thumb {
+      max-width: 50px; }
   .fancybox-button--thumbs {
     display: inline-block; }
   /* ############################################################################
                          - - - >>> NAVBAR-DIV <<< - - -
-############################################################################  */
-  .navbar-div {
-    padding: 0 30%;
-    margin: 0 0 10px 0; } }
+############################################################################  */ }

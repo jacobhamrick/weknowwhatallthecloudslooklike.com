@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $(this).scrollTop(0);
+  $(document).scrollTop(0);
 
   const introDiv = $(".introdiv");
   const titleDiv = $(".titlediv");
@@ -7,19 +7,99 @@ $(document).ready(function () {
   let controller = new ScrollMagic.Controller();
 
   let introImgArray = [
-    { imgUrl: "img/introscenes/OG_IMG_001.jpg" },
-    { imgUrl: "img/introscenes/OG_IMG_002.jpg" },
-    { imgUrl: "img/introscenes/OG_IMG_003.jpg" },
-    { imgUrl: "img/introscenes/OG_IMG_004.jpg" },
-    { imgUrl: "img/introscenes/OG_IMG_005.jpg" },
-    { imgUrl: "img/introscenes/OG_IMG_006.jpg" },
-    { imgUrl: "img/introscenes/OG_IMG_007.jpg" },
-    { imgUrl: "img/introscenes/OG_IMG_008.jpg" },
-    { imgUrl: "img/introscenes/OG_IMG_009.jpg" },
-    { imgUrl: "img/introscenes/OG_IMG_010.jpg" },
-    { imgUrl: "img/introscenes/OG_IMG_011.jpg" },
-    { imgUrl: "img/introscenes/OG_IMG_012.jpg" },
+    { imgUrl: "img/001_weknow.jpg"},
+    { imgUrl: "img/002_weknow.jpg"},
+    { imgUrl: "img/003_weknow.jpg"},
+    { imgUrl: "img/004_weknow.jpg"},
+    { imgUrl: "img/005_weknow.jpg"},
+    { imgUrl: "img/006_weknow.jpg"},
+    { imgUrl: "img/007_weknow.jpg"},
+    { imgUrl: "img/008_weknow.jpg"},
+    { imgUrl: "img/009_weknow.jpg"},
+    { imgUrl: "img/010_weknow.jpg"},
+    { imgUrl: "img/011_weknow.jpg"},
+    { imgUrl: "img/012_weknow.jpg"},
+    { imgUrl: "img/013_weknow.jpg"},
+    { imgUrl: "img/014_weknow.jpg"},
+    { imgUrl: "img/015_weknow.jpg"},
+    { imgUrl: "img/016_weknow.jpg"},
+    { imgUrl: "img/017_weknow.jpg"},
+    { imgUrl: "img/018_weknow.jpg"},
+    { imgUrl: "img/019_weknow.jpg"},
+    { imgUrl: "img/020_weknow.jpg"},
+    { imgUrl: "img/021_weknow.jpg"},
+    { imgUrl: "img/022_weknow.jpg"},
+    { imgUrl: "img/023_weknow.jpg"},
+    { imgUrl: "img/024_weknow.jpg"},
+    { imgUrl: "img/025_weknow.jpg"},
+    { imgUrl: "img/026_weknow.jpg"},
+    { imgUrl: "img/027_weknow.jpg"},
+    { imgUrl: "img/028_weknow.jpg"},
+    { imgUrl: "img/029_weknow.jpg"},
+    { imgUrl: "img/030_weknow.jpg"},
+    { imgUrl: "img/031_weknow.jpg"},
+    { imgUrl: "img/032_weknow.jpg"},
+    { imgUrl: "img/033_weknow.jpg"},
+    { imgUrl: "img/034_weknow.jpg"},
+    { imgUrl: "img/035_weknow.jpg"},
+    { imgUrl: "img/036_weknow.jpg"},
+    { imgUrl: "img/037_weknow.jpg"},
+    { imgUrl: "img/038_weknow.jpg"},
+    { imgUrl: "img/039_weknow.jpg"},
+    { imgUrl: "img/040_weknow.jpg"},
+    { imgUrl: "img/041_weknow.jpg"},
+    { imgUrl: "img/042_weknow.jpg"},
+    { imgUrl: "img/043_weknow.jpg"},
+    { imgUrl: "img/044_weknow.jpg"},
+    { imgUrl: "img/045_weknow.jpg"},
+    { imgUrl: "img/046_weknow.jpg"},
+    { imgUrl: "img/047_weknow.jpg"},
+    { imgUrl: "img/048_weknow.jpg"},
+    { imgUrl: "img/049_weknow.jpg"},
+    { imgUrl: "img/050_weknow.jpg"},
+    { imgUrl: "img/051_weknow.jpg"},
+    { imgUrl: "img/052_weknow.jpg"},
+    { imgUrl: "img/053_weknow.jpg"},
+    { imgUrl: "img/054_weknow.jpg"},
+    { imgUrl: "img/055_weknow.jpg"},
+    { imgUrl: "img/056_weknow.jpg"},
+    { imgUrl: "img/057_weknow.jpg"},
+    { imgUrl: "img/058_weknow.jpg"},
+    { imgUrl: "img/059_weknow.jpg"},
+    { imgUrl: "img/060_weknow.jpg"},
+    { imgUrl: "img/061_weknow.jpg"},
+    { imgUrl: "img/062_weknow.jpg"},
+    { imgUrl: "img/063_weknow.jpg"},
+    { imgUrl: "img/064_weknow.jpg"},
+    { imgUrl: "img/065_weknow.jpg"},
+    { imgUrl: "img/066_weknow.jpg"},
+    { imgUrl: "img/067_weknow.jpg"},
+    { imgUrl: "img/068_weknow.jpg"},
+    { imgUrl: "img/069_weknow.jpg"},
+    { imgUrl: "img/070_weknow.jpg"},
+    { imgUrl: "img/071_weknow.jpg"},
+    { imgUrl: "img/072_weknow.jpg"},
+    { imgUrl: "img/073_weknow.jpg"},
+    { imgUrl: "img/074_weknow.jpg"},
+    { imgUrl: "img/075_weknow.jpg"},
+    { imgUrl: "img/076_weknow.jpg"},
+    { imgUrl: "img/077_weknow.jpg"},
+    { imgUrl: "img/078_weknow.jpg"},
+    { imgUrl: "img/079_weknow.jpg"},
+    { imgUrl: "img/080_weknow.jpg"},
+    { imgUrl: "img/081_weknow.jpg"},
+    { imgUrl: "img/082_weknow.jpg"},
+    { imgUrl: "img/083_weknow.jpg"},
+    { imgUrl: "img/084_weknow.png"},
+    { imgUrl: "img/085_weknow.jpg"},
+    { imgUrl: "img/086_weknow.jpg"},
+    { imgUrl: "img/087_weknow.jpg"},
+    { imgUrl: "img/088_weknow.jpg"},
+    { imgUrl: "img/089_weknow.jpg"},
+    { imgUrl: "img/090_weknow.jpg"},
+    { imgUrl: "img/091_weknow.jpg"}
   ];
+
   let mainIcons = [
     {
       thumb: "/img/thumbs/001_lil_weknow.png",
@@ -412,9 +492,8 @@ $(document).ready(function () {
   // ----------------------------- USER GUIDANCE ---------------------------------
   // -----------------------------------------------------------------------------
 
-  // Give User Hint to Scroll
-
   // SCROLL HINTER
+  // Give User Hint to Scroll
 
   // display scroll hint if user doesn't scroll
   if (window.scrollY == 0) {
@@ -444,16 +523,19 @@ $(document).ready(function () {
   // ------------------------------ INTRO SCENE ----------------------------------
   // -----------------------------------------------------------------------------
 
+  const numberOfScenes = 12;
+
   // Set Height of Intro Div
-  let introDivHeight = $(".introdiv").height() * introImgArray.length;
+  let introDivHeight = $(".introdiv").height() * numberOfScenes;
   $(".introdiv").css("height", introDivHeight);
+  console.log("introDivHeight =" + introDivHeight);
 
   // Randomize intro image sequence
   introImgArray = shuffle(introImgArray);
 
   // Print Intro Scenes to Intro Div
   function printIntroImgs() {
-    for (let i = 0; i < introImgArray.length; i++) {
+    for (let i = 0; i < numberOfScenes; i++) {
       let currentScene = $(introImgArray)[i];
       $(introDiv).append(
         "<div class='introimg' id='introimg-" + (i + 1) + "'></div>"
@@ -461,7 +543,8 @@ $(document).ready(function () {
     }
   }
   printIntroImgs();
-  // must call after intro images printed
+
+  // create array from printed images
   let introImgs = $(".introimg");
 
   // match scenes with background-image urls
@@ -478,32 +561,36 @@ $(document).ready(function () {
   // Fade images in and out by attaching opacity to scroll
   $(window).scroll(() => {
     let scrollTop = $(this).scrollTop();
-    let introImgHeight = $(introImgs).height();
     let currentImg = $(".current");
+    let introSceneHeight = $(".introdiv").height() / numberOfScenes;
 
     function opacityCalc() {
-      let introImgHeight = $(currentImg).height();
       let scrollcalc = (
-        ((introImgHeight * ($(currentImg).index() + 1) - scrollTop) /
-          introImgHeight) *
-        2
+        ((introSceneHeight * ($(currentImg).index() + 1) - scrollTop) /
+          introSceneHeight)
       ).toFixed(2);
+
       let opacityTotal = 1 - scrollcalc;
+
+      // don't let opacity go below 0
+      if ($(opacityTotal) < 0) {
+        opacityTotal = 0;
+      }
+
       return opacityTotal;
     }
 
-    for (let i = 0; i < introImgs.length; i++) {
+    for (let i = 0; i < numberOfScenes; i++) {
       let img = introImgs[i];
       if (
-        scrollTop <= introImgHeight * ($(img).index() + 1) &&
-        scrollTop > introImgHeight * $(img).index() + 1
+        scrollTop <= introSceneHeight * ($(img).index() + 1) &&
+        scrollTop > introSceneHeight * $(img).index() + 1
       ) {
         $(img).addClass("current");
       } else {
         $(img).removeClass("current");
       }
     }
-
     $(currentImg).css({
       opacity: opacityCalc(),
     });
@@ -560,7 +647,7 @@ $(document).ready(function () {
   // MAIN SCENE INIT VIA SCROLL MAGIC TRIGGER
   const mainscene = new ScrollMagic.Scene({
     triggerElement: "#leTrigger",
-    offset: introDivHeight + 1 - introOffset,
+    offset: introDivHeight - introOffset,
     triggerHook: 0.5,
     duration: sceneDuration,
   })
@@ -647,28 +734,22 @@ $(document).ready(function () {
       // fixes lag when dragging thumbs
       setTimeout(() => {
         $(img).css("transition", "position 0s");
-      }, 3500);
+      }, 4000);
 
       $(img).css("left", randX);
       $(img).css("top", randY);
     });
   }
 
-  // mainDiv initial tiggered events ------------------------------------------
+  // mainDiv event timeline  ------------------------------------------
   mainscene.on("enter", (event) => {
     $(mainDiv).removeClass("inactive");
     $(mainDiv).addClass("visible");
-
     // stops title scene from displaying after it's been viewed
     $("#leTrigger").css("display", "none");
 
     setTimeout(() => {
-      $(".navbar-div").addClass("visible");
-      $(".introdiv").css("height", "0");
-      $(".introdiv").css("display", "none");
-    }, 8000);
-
-    setTimeout(() => {
+      $(titleDiv).css("opacity", "0");
       printIcons();
     }, 10000);
 
@@ -677,29 +758,28 @@ $(document).ready(function () {
         $(".image-wrapper").css("opacity", "1");
         centerPile();
         pileImages();
-
         // draggable init ------------------------------------------------------
-        $(".draggable").draggable();
       }, 11000);
     }
 
     setTimeout(() => {
       $(titleDiv).css("display", "none");
+      $(".navbar-div").addClass("visible");
+      $(".introdiv").css("height", "0");
+      $(".introdiv").css("display", "none");
+      $(".draggable").draggable();
     }, 13000);
+
   });
 
   // GRID FUNCTION
   // arranges images into grid
   function toggleGrid() {
+    mainIcons = shuffle(mainIcons);
     let img = $(".image-wrapper");
-
-    centerPile();
-
     $(mainDiv).addClass("grid-view");
-
-    setTimeout(() => {
-      $(img).css("opacity", "0");
-    }, 2000);
+    $(img).css("opacity", "0");
+    img = shuffle(img);
 
     setTimeout(() => {
       $(img).css("position", "relative");
@@ -732,7 +812,7 @@ $(document).ready(function () {
     keyboard: false,
     touch: false,
     wheel: false,
-    buttons: ["thumbs", "close"],
+    buttons: ["close"],
   });
 
   // stops fancybox from opening after image is dragged
@@ -753,7 +833,7 @@ $(document).ready(function () {
 
   // reorganize images after window resize ------------------------------------
   $(window).bind("resizeEnd", () => {
-    if ($(mainDiv).hasClass("grid-view") || $(mainDiv).hasClass("moving")) {
+    if ($(mainDiv).hasClass("grid-view") || $(mainDiv).hasClass("loading")) {
       return false;
     } else {
       pileImages();
@@ -764,11 +844,11 @@ $(document).ready(function () {
   //          ---------------------- NAVBAR ----------------------
   // ---------------------------------------------------------------------------
 
-  //  BUG KILLER FOR MULTI CLICK ACTION - use "moving" class to make nav buttons temporarily inactive
-  function checkIsMoving(animationDuration) {
-    if ($(mainDiv).hasClass("moving")) {
+  //  BUG KILLER FOR MULTI CLICK ACTION - use "loading" class to make nav buttons temporarily inactive
+  function checkIsLoading(animationDuration) {
+    if ($(".nav-link").hasClass("loading")) {
       setTimeout(() => {
-        $(mainDiv).removeClass("moving");
+        $(".nav-link").removeClass("loading");
       }, animationDuration);
       return false;
     }
@@ -790,35 +870,37 @@ $(document).ready(function () {
   // Grid Button
   $(".gridImages").click(() => {
     // prevents images from jumping position
-    if ($(mainDiv).hasClass("grid-view") || $(mainDiv).hasClass("moving")) {
+    if ( $(".gridImages").hasClass("loading") || $(".pileImages").hasClass("loading")) {
       return false;
     }
     // no else statement keeps grid view from refiring
     if ($(mainDiv).hasClass("pile-view")) {
       $(mainDiv).removeClass("pile-view");
       $(mainDiv).addClass("grid-view");
-      $(mainDiv).addClass("moving");
-      toggleGrid();
-      checkIsMoving(6500);
+      centerPile();
     }
+    $(".gridImages").addClass("loading");
+
+    toggleGrid();
+    checkIsLoading(6500);
   });
 
   // Pile Button
   $(".pileImages").click(() => {
     // prevents images from jumping position
-    if ($(mainDiv).hasClass("moving")) {
+    centerPile();
+    pileImages();
+    if ($(".pileImages").hasClass("loading") || $(".gridIamges").hasClass(".loading")) {
       return false;
-    } else {
-      if ($(mainDiv).hasClass("grid-view")) {
-        $(mainDiv).removeClass("grid-view");
-        $(mainDiv).addClass("pile-view");
-      }
-      // else statement allows user to shuffle images over and over
-      $(mainDiv).addClass("moving");
-      pileImages();
-      checkIsMoving(3500);
     }
+    if ($(mainDiv).hasClass("grid-view")) {
+      $(mainDiv).removeClass("grid-view");
+    }
+      $(".pileImages").addClass("loading");
+      checkIsLoading(4500);
   });
+
+
 }); //end document.ready
 
 $(window).on("load", function () {
