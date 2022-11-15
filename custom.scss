@@ -9,12 +9,14 @@ $green: #a4fa3e;
   box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html,
 body {
   height: 100vh;
   background: #000;
-  cursor: url("/cloudy.ico"), auto;
-  scroll-behavior: smooth;
   position: absolute;
 }
 
@@ -76,14 +78,12 @@ h5 {
   color: $white;
 }
 
-a {
-  text-decoration: none;
-  cursor: url("/eye.ico"), auto;
+p {
+  margin: 0;
+  line-height: 1.5;
 }
 
-.image-wrapper:hover {
-  cursor: url("/eye.ico"), auto;
-}
+
 
 /* -----------------------------------------------------------------------------
                          - - - >>> SCROLLHINTER <<< - - -
@@ -186,6 +186,7 @@ a {
 .introdiv {
   position: absolute;
   transition: opacity 3s;
+  margin: 0 0 10vh 0;
 }
 
 .introimg {
@@ -209,6 +210,7 @@ a {
   opacity: 0;
   height: 0;
   transition: all 1s;
+  display: none;
 }
 
 /* -----------------------------------------------------------------------------
@@ -256,6 +258,10 @@ a {
 .cloudtext.dummy {
   margin: 0 2vw;
   width: 1vw;
+}
+
+.titleDiv.inactive {
+  display: none;
 }
 
 /* -----------------------------------------------------------------------------
@@ -408,7 +414,6 @@ a {
 }
 
 #closebutton {
-  position: absolute;
   bottom: 0;
   transition: all 0.8s;
 }
@@ -440,7 +445,7 @@ a {
   z-index: 9999;
   p {
     color: $white;
-    margin-top: 1vw;
+
   }
   #infotitle {
     width: 100%;
@@ -574,9 +579,8 @@ a {
   }
 
   #infobox {
-    overflow: hidden;
-    height: 100vh;
-    padding: 2vw;
+    min-height: 100vh;
+    padding: 4vw;
   }
 
   /* #############################################################################

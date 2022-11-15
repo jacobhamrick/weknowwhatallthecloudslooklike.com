@@ -6,436 +6,450 @@ $(document).ready(function () {
   const mainDiv = $(".main");
   let controller = new ScrollMagic.Controller();
 
+  function handle(delta) {
+    var time = 1000;
+    var distance = 300;
+
+    $("html, body")
+      .stop()
+      .animate(
+        {
+          scrollTop: $(window).scrollTop() - distance * delta,
+        },
+        time
+      );
+  }
+
   let introImgArray = [
-    { imgUrl: "img/001_weknow.jpg"},
-    { imgUrl: "img/002_weknow.jpg"},
-    { imgUrl: "img/003_weknow.jpg"},
-    { imgUrl: "img/004_weknow.jpg"},
-    { imgUrl: "img/005_weknow.jpg"},
-    { imgUrl: "img/006_weknow.jpg"},
-    { imgUrl: "img/007_weknow.jpg"},
-    { imgUrl: "img/008_weknow.jpg"},
-    { imgUrl: "img/009_weknow.jpg"},
-    { imgUrl: "img/010_weknow.jpg"},
-    { imgUrl: "img/011_weknow.jpg"},
-    { imgUrl: "img/012_weknow.jpg"},
-    { imgUrl: "img/013_weknow.jpg"},
-    { imgUrl: "img/014_weknow.jpg"},
-    { imgUrl: "img/015_weknow.jpg"},
-    { imgUrl: "img/016_weknow.jpg"},
-    { imgUrl: "img/017_weknow.jpg"},
-    { imgUrl: "img/018_weknow.jpg"},
-    { imgUrl: "img/019_weknow.jpg"},
-    { imgUrl: "img/020_weknow.jpg"},
-    { imgUrl: "img/021_weknow.jpg"},
-    { imgUrl: "img/022_weknow.jpg"},
-    { imgUrl: "img/023_weknow.jpg"},
-    { imgUrl: "img/024_weknow.jpg"},
-    { imgUrl: "img/025_weknow.jpg"},
-    { imgUrl: "img/026_weknow.jpg"},
-    { imgUrl: "img/027_weknow.jpg"},
-    { imgUrl: "img/028_weknow.jpg"},
-    { imgUrl: "img/029_weknow.jpg"},
-    { imgUrl: "img/030_weknow.jpg"},
-    { imgUrl: "img/031_weknow.jpg"},
-    { imgUrl: "img/032_weknow.jpg"},
-    { imgUrl: "img/033_weknow.jpg"},
-    { imgUrl: "img/034_weknow.jpg"},
-    { imgUrl: "img/035_weknow.jpg"},
-    { imgUrl: "img/036_weknow.jpg"},
-    { imgUrl: "img/037_weknow.jpg"},
-    { imgUrl: "img/038_weknow.jpg"},
-    { imgUrl: "img/039_weknow.jpg"},
-    { imgUrl: "img/040_weknow.jpg"},
-    { imgUrl: "img/041_weknow.jpg"},
-    { imgUrl: "img/042_weknow.jpg"},
-    { imgUrl: "img/043_weknow.jpg"},
-    { imgUrl: "img/044_weknow.jpg"},
-    { imgUrl: "img/045_weknow.jpg"},
-    { imgUrl: "img/046_weknow.jpg"},
-    { imgUrl: "img/047_weknow.jpg"},
-    { imgUrl: "img/048_weknow.jpg"},
-    { imgUrl: "img/049_weknow.jpg"},
-    { imgUrl: "img/050_weknow.jpg"},
-    { imgUrl: "img/051_weknow.jpg"},
-    { imgUrl: "img/052_weknow.jpg"},
-    { imgUrl: "img/053_weknow.jpg"},
-    { imgUrl: "img/054_weknow.jpg"},
-    { imgUrl: "img/055_weknow.jpg"},
-    { imgUrl: "img/056_weknow.jpg"},
-    { imgUrl: "img/057_weknow.jpg"},
-    { imgUrl: "img/058_weknow.jpg"},
-    { imgUrl: "img/059_weknow.jpg"},
-    { imgUrl: "img/060_weknow.jpg"},
-    { imgUrl: "img/061_weknow.jpg"},
-    { imgUrl: "img/062_weknow.jpg"},
-    { imgUrl: "img/063_weknow.jpg"},
-    { imgUrl: "img/064_weknow.jpg"},
-    { imgUrl: "img/065_weknow.jpg"},
-    { imgUrl: "img/066_weknow.jpg"},
-    { imgUrl: "img/067_weknow.jpg"},
-    { imgUrl: "img/068_weknow.jpg"},
-    { imgUrl: "img/069_weknow.jpg"},
-    { imgUrl: "img/070_weknow.jpg"},
-    { imgUrl: "img/071_weknow.jpg"},
-    { imgUrl: "img/072_weknow.jpg"},
-    { imgUrl: "img/073_weknow.jpg"},
-    { imgUrl: "img/074_weknow.jpg"},
-    { imgUrl: "img/075_weknow.jpg"},
-    { imgUrl: "img/076_weknow.jpg"},
-    { imgUrl: "img/077_weknow.jpg"},
-    { imgUrl: "img/078_weknow.jpg"},
-    { imgUrl: "img/079_weknow.jpg"},
-    { imgUrl: "img/080_weknow.jpg"},
-    { imgUrl: "img/081_weknow.jpg"},
-    { imgUrl: "img/082_weknow.jpg"},
-    { imgUrl: "img/083_weknow.jpg"},
-    { imgUrl: "img/084_weknow.png"},
-    { imgUrl: "img/085_weknow.jpg"},
-    { imgUrl: "img/086_weknow.jpg"},
-    { imgUrl: "img/087_weknow.jpg"},
-    { imgUrl: "img/088_weknow.jpg"},
-    { imgUrl: "img/089_weknow.jpg"},
-    { imgUrl: "img/090_weknow.jpg"},
-    { imgUrl: "img/091_weknow.jpg"}
+    { imgUrl: "img/001_weknow-min.jpg" },
+    { imgUrl: "img/002_weknow-min.jpg" },
+    { imgUrl: "img/003_weknow-min.jpg" },
+    { imgUrl: "img/004_weknow-min.jpg" },
+    { imgUrl: "img/005_weknow-min.jpg" },
+    { imgUrl: "img/006_weknow-min.jpg" },
+    { imgUrl: "img/007_weknow-min.jpg" },
+    { imgUrl: "img/008_weknow-min.jpg" },
+    { imgUrl: "img/009_weknow-min.jpg" },
+    { imgUrl: "img/010_weknow-min.jpg" },
+    { imgUrl: "img/011_weknow-min.jpg" },
+    { imgUrl: "img/012_weknow-min.jpg" },
+    { imgUrl: "img/013_weknow-min.jpg" },
+    { imgUrl: "img/014_weknow-min.jpg" },
+    { imgUrl: "img/015_weknow-min.jpg" },
+    { imgUrl: "img/016_weknow-min.jpg" },
+    { imgUrl: "img/017_weknow-min.jpg" },
+    { imgUrl: "img/018_weknow-min.jpg" },
+    { imgUrl: "img/019_weknow-min.jpg" },
+    { imgUrl: "img/020_weknow-min.jpg" },
+    { imgUrl: "img/021_weknow-min.jpg" },
+    { imgUrl: "img/022_weknow-min.jpg" },
+    { imgUrl: "img/023_weknow-min.jpg" },
+    { imgUrl: "img/024_weknow-min.jpg" },
+    { imgUrl: "img/025_weknow-min.jpg" },
+    { imgUrl: "img/026_weknow-min.jpg" },
+    { imgUrl: "img/027_weknow-min.jpg" },
+    { imgUrl: "img/028_weknow-min.jpg" },
+    { imgUrl: "img/029_weknow-min.jpg" },
+    { imgUrl: "img/030_weknow-min.jpg" },
+    { imgUrl: "img/031_weknow-min.jpg" },
+    { imgUrl: "img/032_weknow-min.jpg" },
+    { imgUrl: "img/033_weknow-min.jpg" },
+    { imgUrl: "img/034_weknow-min.jpg" },
+    { imgUrl: "img/035_weknow-min.jpg" },
+    { imgUrl: "img/036_weknow-min.jpg" },
+    { imgUrl: "img/037_weknow-min.jpg" },
+    { imgUrl: "img/038_weknow-min.jpg" },
+    { imgUrl: "img/039_weknow-min.jpg" },
+    { imgUrl: "img/040_weknow-min.jpg" },
+    { imgUrl: "img/041_weknow-min.jpg" },
+    { imgUrl: "img/042_weknow-min.jpg" },
+    { imgUrl: "img/043_weknow-min.jpg" },
+    { imgUrl: "img/044_weknow-min.jpg" },
+    { imgUrl: "img/045_weknow-min.jpg" },
+    { imgUrl: "img/046_weknow-min.jpg" },
+    { imgUrl: "img/047_weknow-min.jpg" },
+    { imgUrl: "img/048_weknow-min.jpg" },
+    { imgUrl: "img/049_weknow-min.jpg" },
+    { imgUrl: "img/050_weknow-min.jpg" },
+    { imgUrl: "img/051_weknow-min.jpg" },
+    { imgUrl: "img/052_weknow-min.jpg" },
+    { imgUrl: "img/053_weknow-min.jpg" },
+    { imgUrl: "img/054_weknow-min.jpg" },
+    { imgUrl: "img/055_weknow-min.jpg" },
+    { imgUrl: "img/056_weknow-min.jpg" },
+    { imgUrl: "img/057_weknow-min.jpg" },
+    { imgUrl: "img/058_weknow-min.jpg" },
+    { imgUrl: "img/059_weknow-min.jpg" },
+    { imgUrl: "img/060_weknow-min.jpg" },
+    { imgUrl: "img/061_weknow-min.jpg" },
+    { imgUrl: "img/062_weknow-min.jpg" },
+    { imgUrl: "img/063_weknow-min.jpg" },
+    { imgUrl: "img/064_weknow-min.jpg" },
+    { imgUrl: "img/065_weknow-min.jpg" },
+    { imgUrl: "img/066_weknow-min.jpg" },
+    { imgUrl: "img/067_weknow-min.jpg" },
+    { imgUrl: "img/068_weknow-min.jpg" },
+    { imgUrl: "img/069_weknow-min.jpg" },
+    { imgUrl: "img/070_weknow-min.jpg" },
+    { imgUrl: "img/071_weknow-min.jpg" },
+    { imgUrl: "img/072_weknow-min.jpg" },
+    { imgUrl: "img/073_weknow-min.jpg" },
+    { imgUrl: "img/074_weknow-min.jpg" },
+    { imgUrl: "img/075_weknow-min.jpg" },
+    { imgUrl: "img/076_weknow-min.jpg" },
+    { imgUrl: "img/077_weknow-min.jpg" },
+    { imgUrl: "img/078_weknow-min.jpg" },
+    { imgUrl: "img/079_weknow-min.jpg" },
+    { imgUrl: "img/080_weknow-min.jpg" },
+    { imgUrl: "img/081_weknow-min.jpg" },
+    { imgUrl: "img/082_weknow-min.jpg" },
+    { imgUrl: "img/083_weknow-min.jpg" },
+    { imgUrl: "img/084_weknow.png" },
+    { imgUrl: "img/085_weknow-min.jpg" },
+    { imgUrl: "img/086_weknow-min.jpg" },
+    { imgUrl: "img/087_weknow-min.jpg" },
+    { imgUrl: "img/088_weknow-min.jpg" },
+    { imgUrl: "img/089_weknow-min.jpg" },
+    { imgUrl: "img/090_weknow-min.jpg" },
+    { imgUrl: "img/091_weknow-min.jpg" },
   ];
 
   let mainIcons = [
     {
       thumb: "/img/thumbs/001_lil_weknow.png",
-      standard: "/img/001_weknow.jpg",
+      standard: "/img/001_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/002_lil_weknow.png",
-      standard: "/img/002_weknow.jpg",
+      standard: "/img/002_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/003_lil_weknow.png",
-      standard: "/img/003_weknow.jpg",
+      standard: "/img/003_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/004_lil_weknow.png",
-      standard: "/img/004_weknow.jpg",
+      standard: "/img/004_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/005_lil_weknow.png",
-      standard: "/img/005_weknow.jpg",
+      standard: "/img/005_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/006_lil_weknow.png",
-      standard: "/img/006_weknow.jpg",
+      standard: "/img/006_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/007_lil_weknow.png",
-      standard: "/img/007_weknow.jpg",
+      standard: "/img/007_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/008_lil_weknow.png",
-      standard: "/img/008_weknow.jpg",
+      standard: "/img/008_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/009_lil_weknow.png",
-      standard: "/img/009_weknow.jpg",
+      standard: "/img/009_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/010_lil_weknow.png",
-      standard: "/img/010_weknow.jpg",
+      standard: "/img/010_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/011_lil_weknow.png",
-      standard: "/img/011_weknow.jpg",
+      standard: "/img/011_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/012_lil_weknow.png",
-      standard: "/img/012_weknow.jpg",
+      standard: "/img/012_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/013_lil_weknow.png",
-      standard: "/img/013_weknow.jpg",
+      standard: "/img/013_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/014_lil_weknow.png",
-      standard: "/img/014_weknow.jpg",
+      standard: "/img/014_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/015_lil_weknow.png",
-      standard: "/img/015_weknow.jpg",
+      standard: "/img/015_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/016_lil_weknow.png",
-      standard: "/img/016_weknow.jpg",
+      standard: "/img/016_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/017_lil_weknow.png",
-      standard: "/img/017_weknow.jpg",
+      standard: "/img/017_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/018_lil_weknow.png",
-      standard: "/img/018_weknow.jpg",
+      standard: "/img/018_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/018_lil_weknow.png",
-      standard: "/img/018_weknow.jpg",
+      standard: "/img/018_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/019_lil_weknow.png",
-      standard: "/img/019_weknow.jpg",
+      standard: "/img/019_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/020_lil_weknow.png",
-      standard: "/img/020_weknow.jpg",
+      standard: "/img/020_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/021_lil_weknow.png",
-      standard: "/img/021_weknow.jpg",
+      standard: "/img/021_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/022_lil_weknow.png",
-      standard: "/img/022_weknow.jpg",
+      standard: "/img/022_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/023_lil_weknow.png",
-      standard: "/img/023_weknow.jpg",
+      standard: "/img/023_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/024_lil_weknow.png",
-      standard: "/img/024_weknow.jpg",
+      standard: "/img/024_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/025_lil_weknow.png",
-      standard: "/img/025_weknow.jpg",
+      standard: "/img/025_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/026_lil_weknow.png",
-      standard: "/img/026_weknow.jpg",
+      standard: "/img/026_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/027_lil_weknow.png",
-      standard: "/img/027_weknow.jpg",
+      standard: "/img/027_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/028_lil_weknow.png",
-      standard: "/img/028_weknow.jpg",
+      standard: "/img/028_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/029_lil_weknow.png",
-      standard: "/img/029_weknow.jpg",
+      standard: "/img/029_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/030_lil_weknow.png",
-      standard: "/img/030_weknow.jpg",
+      standard: "/img/030_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/031_lil_weknow.png",
-      standard: "/img/031_weknow.jpg",
+      standard: "/img/031_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/032_lil_weknow.png",
-      standard: "/img/032_weknow.jpg",
+      standard: "/img/032_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/033_lil_weknow.png",
-      standard: "/img/033_weknow.jpg",
+      standard: "/img/033_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/034_lil_weknow.png",
-      standard: "/img/034_weknow.jpg",
+      standard: "/img/034_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/035_lil_weknow.png",
-      standard: "/img/035_weknow.jpg",
+      standard: "/img/035_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/036_lil_weknow.png",
-      standard: "/img/036_weknow.jpg",
+      standard: "/img/036_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/037_lil_weknow.png",
-      standard: "/img/037_weknow.jpg",
+      standard: "/img/037_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/038_lil_weknow.png",
-      standard: "/img/038_weknow.jpg",
+      standard: "/img/038_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/039_lil_weknow.png",
-      standard: "/img/039_weknow.jpg",
+      standard: "/img/039_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/040_lil_weknow.png",
-      standard: "/img/040_weknow.jpg",
+      standard: "/img/040_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/041_lil_weknow.png",
-      standard: "/img/041_weknow.jpg",
+      standard: "/img/041_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/042_lil_weknow.png",
-      standard: "/img/042_weknow.jpg",
+      standard: "/img/042_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/043_lil_weknow.png",
-      standard: "/img/043_weknow.jpg",
+      standard: "/img/043_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/044_lil_weknow.png",
-      standard: "/img/044_weknow.jpg",
+      standard: "/img/044_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/045_lil_weknow.png",
-      standard: "/img/045_weknow.jpg",
+      standard: "/img/045_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/046_lil_weknow.png",
-      standard: "/img/046_weknow.jpg",
+      standard: "/img/046_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/047_lil_weknow.png",
-      standard: "/img/047_weknow.jpg",
+      standard: "/img/047_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/048_lil_weknow.png",
-      standard: "/img/048_weknow.jpg",
+      standard: "/img/048_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/049_lil_weknow.png",
-      standard: "/img/049_weknow.jpg",
+      standard: "/img/049_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/050_lil_weknow.png",
-      standard: "/img/050_weknow.jpg",
+      standard: "/img/050_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/051_lil_weknow.png",
-      standard: "/img/051_weknow.jpg",
+      standard: "/img/051_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/052_lil_weknow.png",
-      standard: "/img/052_weknow.jpg",
+      standard: "/img/052_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/053_lil_weknow.png",
-      standard: "/img/053_weknow.jpg",
+      standard: "/img/053_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/054_lil_weknow.png",
-      standard: "/img/054_weknow.jpg",
+      standard: "/img/054_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/055_lil_weknow.png",
-      standard: "/img/055_weknow.jpg",
+      standard: "/img/055_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/056_lil_weknow.png",
-      standard: "/img/056_weknow.jpg",
+      standard: "/img/056_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/057_lil_weknow.png",
-      standard: "/img/057_weknow.jpg",
+      standard: "/img/057_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/058_lil_weknow.png",
-      standard: "/img/058_weknow.jpg",
+      standard: "/img/058_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/059_lil_weknow.png",
-      standard: "/img/059_weknow.jpg",
+      standard: "/img/059_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/060_lil_weknow.png",
-      standard: "/img/060_weknow.jpg",
+      standard: "/img/060_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/061_lil_weknow.png",
-      standard: "/img/061_weknow.jpg",
+      standard: "/img/061_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/062_lil_weknow.png",
-      standard: "/img/062_weknow.jpg",
+      standard: "/img/062_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/063_lil_weknow.png",
-      standard: "/img/063_weknow.jpg",
+      standard: "/img/063_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/064_lil_weknow.png",
-      standard: "/img/064_weknow.jpg",
+      standard: "/img/064_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/065_lil_weknow.png",
-      standard: "/img/065_weknow.jpg",
+      standard: "/img/065_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/066_lil_weknow.png",
-      standard: "/img/066_weknow.jpg",
+      standard: "/img/066_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/067_lil_weknow.png",
-      standard: "/img/067_weknow.jpg",
+      standard: "/img/067_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/068_lil_weknow.png",
-      standard: "/img/068_weknow.jpg",
+      standard: "/img/068_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/069_lil_weknow.png",
-      standard: "/img/069_weknow.jpg",
+      standard: "/img/069_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/070_lil_weknow.png",
-      standard: "/img/070_weknow.jpg",
+      standard: "/img/070_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/071_lil_weknow.png",
-      standard: "/img/071_weknow.jpg",
+      standard: "/img/071_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/072_lil_weknow.png",
-      standard: "/img/072_weknow.jpg",
+      standard: "/img/072_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/073_lil_weknow.png",
-      standard: "/img/073_weknow.jpg",
+      standard: "/img/073_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/074_lil_weknow.png",
-      standard: "/img/074_weknow.jpg",
+      standard: "/img/074_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/075_lil_weknow.png",
-      standard: "/img/075_weknow.jpg",
+      standard: "/img/075_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/076_lil_weknow.png",
-      standard: "/img/076_weknow.jpg",
+      standard: "/img/076_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/077_lil_weknow.png",
-      standard: "/img/077_weknow.jpg",
+      standard: "/img/077_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/078_lil_weknow.png",
-      standard: "/img/078_weknow.jpg",
+      standard: "/img/078_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/079_lil_weknow.png",
-      standard: "/img/079_weknow.jpg",
+      standard: "/img/079_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/080_lil_weknow.png",
-      standard: "/img/080_weknow.jpg",
+      standard: "/img/080_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/081_lil_weknow.png",
-      standard: "/img/081_weknow.jpg",
+      standard: "/img/081_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/082_lil_weknow.png",
-      standard: "/img/082_weknow.jpg",
+      standard: "/img/082_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/083_lil_weknow.png",
-      standard: "/img/083_weknow.jpg",
+      standard: "/img/083_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/084_lil_weknow.png",
@@ -443,31 +457,31 @@ $(document).ready(function () {
     },
     {
       thumb: "/img/thumbs/085_lil_weknow.png",
-      standard: "/img/085_weknow.jpg",
+      standard: "/img/085_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/086_lil_weknow.png",
-      standard: "/img/086_weknow.jpg",
+      standard: "/img/086_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/087_lil_weknow.png",
-      standard: "/img/087_weknow.jpg",
+      standard: "/img/087_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/088_lil_weknow.png",
-      standard: "/img/088_weknow.jpg",
+      standard: "/img/088_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/089_lil_weknow.png",
-      standard: "/img/089_weknow.jpg",
+      standard: "/img/089_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/090_lil_weknow.png",
-      standard: "/img/090_weknow.jpg",
+      standard: "/img/090_weknow-min.jpg",
     },
     {
       thumb: "/img/thumbs/091_lil_weknow.png",
-      standard: "/img/091_weknow.jpg",
+      standard: "/img/091_weknow-min.jpg",
     },
   ];
 
@@ -526,9 +540,8 @@ $(document).ready(function () {
   const numberOfScenes = 12;
 
   // Set Height of Intro Div
-  let introDivHeight = $(".introdiv").height() * numberOfScenes;
+  let introDivHeight = $(".introdiv").height() * numberOfScenes * 10; // * 10 slows opacity shift during scroll
   $(".introdiv").css("height", introDivHeight);
-  console.log("introDivHeight =" + introDivHeight);
 
   // Randomize intro image sequence
   introImgArray = shuffle(introImgArray);
@@ -545,7 +558,8 @@ $(document).ready(function () {
   printIntroImgs();
 
   // create array from printed images
-  let introImgs = $(".introimg");
+  let introImgs = [];
+  introImgs = $(".introimg");
 
   // match scenes with background-image urls
   function matchSceneWithUrl() {
@@ -561,40 +575,44 @@ $(document).ready(function () {
   // Fade images in and out by attaching opacity to scroll
   $(window).scroll(() => {
     let scrollTop = $(this).scrollTop();
-    let currentImg = $(".current");
     let introSceneHeight = $(".introdiv").height() / numberOfScenes;
-
-    function opacityCalc() {
-      let scrollcalc = (
-        ((introSceneHeight * ($(currentImg).index() + 1) - scrollTop) /
-          introSceneHeight)
-      ).toFixed(2);
-
-      let opacityTotal = 1 - scrollcalc;
-
-      // don't let opacity go below 0
-      if ($(opacityTotal) < 0) {
-        opacityTotal = 0;
-      }
-
-      return opacityTotal;
-    }
+    let scrollcalc = (introSceneHeight - scrollTop) / introSceneHeight;
+    let opacityTotal = 0;
 
     for (let i = 0; i < numberOfScenes; i++) {
       let img = introImgs[i];
-      if (
-        scrollTop <= introSceneHeight * ($(img).index() + 1) &&
-        scrollTop > introSceneHeight * $(img).index() + 1
-      ) {
-        $(img).addClass("current");
-      } else {
-        $(img).removeClass("current");
-      }
+
+      console.log(scrollcalc);
+
+      $(img).css({
+        opacity: 0,
+      });
+
+      opacityTotal = 1 - scrollcalc - i;
+
+      $(img).css({
+        opacity: opacityTotal,
+      });
+
+      //
+      //
+      // };
+
+      // if ($(opacityTotal) > 1) {
+      //   $(".current").css({
+      //     display: none,
+      //   });
+      //
+      // };
     }
-    $(currentImg).css({
-      opacity: opacityCalc(),
-    });
   });
+
+  if ($(".introimg").css("opacity") > 0) {
+    $(".introimg").addClass("current");
+  }
+  if ($(".introimg").css("opacity") > 1) {
+    $(".introimg").removeClass("current");
+  }
 
   // -----------------------------------------------------------------------------
   // ------------------------------ TITLE SCENE ----------------------------------
@@ -769,7 +787,6 @@ $(document).ready(function () {
       $(".introdiv").css("display", "none");
       $(".draggable").draggable();
     }, 13000);
-
   });
 
   // GRID FUNCTION
@@ -799,6 +816,7 @@ $(document).ready(function () {
 
   // FANCY BOX -----------------------------------------------------------------
   // fancybox init
+
   $().fancybox({
     selector: ".image-wrapper",
     protect: true,
@@ -870,7 +888,10 @@ $(document).ready(function () {
   // Grid Button
   $(".gridImages").click(() => {
     // prevents images from jumping position
-    if ( $(".gridImages").hasClass("loading") || $(".pileImages").hasClass("loading")) {
+    if (
+      $(".gridImages").hasClass("loading") ||
+      $(".pileImages").hasClass("loading")
+    ) {
       return false;
     }
     // no else statement keeps grid view from refiring
@@ -890,20 +911,22 @@ $(document).ready(function () {
     // prevents images from jumping position
     centerPile();
     pileImages();
-    if ($(".pileImages").hasClass("loading") || $(".gridIamges").hasClass(".loading")) {
+    if (
+      $(".pileImages").hasClass("loading") ||
+      $(".gridIamges").hasClass(".loading")
+    ) {
       return false;
     }
     if ($(mainDiv).hasClass("grid-view")) {
       $(mainDiv).removeClass("grid-view");
     }
-      $(".pileImages").addClass("loading");
-      checkIsLoading(4500);
+    $(".pileImages").addClass("loading");
+    checkIsLoading(4500);
   });
-
-
 }); //end document.ready
 
 $(window).on("load", function () {
   // start at 0 every page load
   $(this).scrollTop(0);
+  document.cookie = "cookie2=value2; SameSite=None; Secure";
 });

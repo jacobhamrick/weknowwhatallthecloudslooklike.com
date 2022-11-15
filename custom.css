@@ -2,12 +2,13 @@
 * {
   box-sizing: border-box; }
 
+html {
+  scroll-behavior: smooth; }
+
 html,
 body {
   height: 100vh;
   background: #000;
-  cursor: url("/cloudy.ico"), auto;
-  scroll-behavior: smooth;
   position: absolute; }
 
 body {
@@ -58,12 +59,9 @@ h5 {
   font-family: "Arial", sans-serif;
   color: #fff; }
 
-a {
-  text-decoration: none;
-  cursor: url("/eye.ico"), auto; }
-
-.image-wrapper:hover {
-  cursor: url("/eye.ico"), auto; }
+p {
+  margin: 0;
+  line-height: 1.5; }
 
 /* -----------------------------------------------------------------------------
                          - - - >>> SCROLLHINTER <<< - - -
@@ -153,7 +151,8 @@ a {
 ----------------------------------------------------------------------------- */
 .introdiv {
   position: absolute;
-  transition: opacity 3s; }
+  transition: opacity 3s;
+  margin: 0 0 10vh 0; }
 
 .introimg {
   height: 100vh;
@@ -173,7 +172,8 @@ a {
   z-index: 0;
   opacity: 0;
   height: 0;
-  transition: all 1s; }
+  transition: all 1s;
+  display: none; }
 
 /* -----------------------------------------------------------------------------
                            - - - >>> TITLE SCENE <<< - - -
@@ -213,6 +213,9 @@ a {
 .cloudtext.dummy {
   margin: 0 2vw;
   width: 1vw; }
+
+.titleDiv.inactive {
+  display: none; }
 
 /* -----------------------------------------------------------------------------
                               - - - >>> MAIN <<< - - -
@@ -333,7 +336,6 @@ a {
   border: 1px red dotted; }
 
 #closebutton {
-  position: absolute;
   bottom: 0;
   transition: all 0.8s; }
 
@@ -360,8 +362,7 @@ a {
   overflow: scroll;
   z-index: 9999; }
   #infobox p {
-    color: #fff;
-    margin-top: 1vw; }
+    color: #fff; }
   #infobox #infotitle {
     width: 100%; }
     #infobox #infotitle .row {
@@ -455,9 +456,8 @@ a {
     margin: 0 1vw;
     width: 0.5vw; }
   #infobox {
-    overflow: hidden;
-    height: 100vh;
-    padding: 2vw; }
+    min-height: 100vh;
+    padding: 4vw; }
   /* #############################################################################
                          - - - >>> MAIN SCENE <<< - - -
 ############################################################################# */
