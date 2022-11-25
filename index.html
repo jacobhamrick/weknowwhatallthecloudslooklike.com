@@ -1,336 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta content="width=device-width, initial-scale=1" name="viewport">
-	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<link rel="shortcut icon" href="">
-	<meta content="We Know What All the Clouds Look Like" name="description">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <link rel="shortcut icon" href="" />
+    <meta content="We Know What All the Clouds Look Like" name="description" />
 
-	<title>We Know What All the Clouds Look Like</title>
+    <title>We Know What All the Clouds Look Like</title>
 
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Merriweather:300,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+      integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv"
+      crossorigin="anonymous"
+    />
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+    <link href="custom.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- SCROLL HINTER -->
+    <div id="scrollhintdiv" class="inactive">
+      <div><p>SCROLL</p></div>
+      <div class="moveUpDown"><i class="fas fa-chevron-down"></i></div>
+    </div>
 
+    <!-- MOBILE HINTER -->
+    <div id="mobilehintdiv">
+      <div>
+        <p>Best Viewed on Larger Screens</p>
+        <p><i class="fas fa-times"></i></p>
+      </div>
+    </div>
 
-	<link href="custom.css" rel="stylesheet">
+    <!-- SCENE I: INTRO -->
+    <div class="introdiv scene"></div>
 
+    <!-- SCENE TRIGGER -->
+    <div id="leTrigger" class="trigger"></div>
 
-</head>
-<body>
-	<!-- SCROLL HINTER -->
-	<div id="scrollhintdiv" class="inactive">
-		<div><p>SCROLL</p></div>
-		<div class="moveUpDown"><i class="fas fa-chevron-down"></i></div>
-	</div>
-
-	<!-- MOBILE HINTER -->
-	<div id="mobilehintdiv">
-		<div>
-			<p>Best Viewed on Larger Screens</p>
-			<p><i class="fas fa-times"></i></p>
-		</div>
-	</div>
-
-	<!-- SCENE I: INTRO -->
-	<div class="introdiv scene"></div>
-
-	<!-- SCENE TRIGGER -->
-	<div id="leTrigger" class="trigger"></div>
-
-	<!-- SCENE II: TITLE -->
-	<div class="titlediv inactive scene">
-			<div class="row">
-
-				<div>
-					<img class="cloudtext" src="/img/letters/w_1.png" />
-					<img class="cloudtext" src="/img/letters/e_1.png" />
-					<!-- <p class="cloudtext">W</p>
+    <!-- SCENE II: TITLE -->
+    <div class="titlediv inactive scene">
+      <div class="row">
+        <div>
+          <img class="cloudtext" src="/img/letters/w_1.png" />
+          <img class="cloudtext" src="/img/letters/e_1.png" />
+          <!-- <p class="cloudtext">W</p>
 					<p class="cloudtext">E</p> -->
+        </div>
 
-				</div>
+        <span class="cloudtext dummy"></span>
+        <!-- dummy img -->
 
-				<span class="cloudtext dummy"></span> <!-- dummy img -->
+        <div>
+          <img class="cloudtext" src="/img/letters/k_1.png" />
+          <img class="cloudtext" src="/img/letters/n_1.png" />
+          <img class="cloudtext" src="/img/letters/o_1.png" />
+          <img class="cloudtext" src="/img/letters/w_2.png" />
+        </div>
+      </div>
 
-				<div>
-					<img class="cloudtext" src="/img/letters/k_1.png" />
-					<img class="cloudtext" src="/img/letters/n_1.png" />
-					<img class="cloudtext" src="/img/letters/o_1.png" />
-					<img class="cloudtext" src="/img/letters/w_2.png" />
-				</div>
+      <div class="row">
+        <div>
+          <img class="cloudtext" src="/img/letters/w_3.png" />
+          <img class="cloudtext" src="/img/letters/h_1.png" />
+          <img class="cloudtext" src="/img/letters/a_1.png" />
+          <img class="cloudtext" src="/img/letters/t_1.png" />
+        </div>
 
-			</div>
+        <span class="cloudtext dummy"></span>
+        <!-- dummy img -->
 
-			<div class="row">
+        <div>
+          <img class="cloudtext" src="/img/letters/a_2.png" />
+          <img class="cloudtext" src="/img/letters/l_1.png" />
+          <img class="cloudtext" src="/img/letters/l_2.png" />
+        </div>
 
-				<div>
-					<img class="cloudtext" src="/img/letters/w_3.png" />
-					<img class="cloudtext" src="/img/letters/h_1.png" />
-					<img class="cloudtext" src="/img/letters/a_1.png" />
-					<img class="cloudtext" src="/img/letters/t_1.png" />
-				</div>
+        <span class="cloudtext dummy"></span>
+        <!-- dummy img -->
+        <div>
+          <img class="cloudtext" src="/img/letters/t_2.png" />
+          <img class="cloudtext" src="/img/letters/h_2.png" />
+          <img class="cloudtext" src="/img/letters/e_1.png" />
+        </div>
+      </div>
 
-				<span class="cloudtext dummy"></span> <!-- dummy img -->
+      <div class="row">
+        <div>
+          <img class="cloudtext" src="/img/letters/c_1.png" />
+          <img class="cloudtext" src="/img/letters/l_3.png" />
+          <img class="cloudtext" src="/img/letters/o_2.png" />
+          <img class="cloudtext" src="/img/letters/u_1.png" />
+          <img class="cloudtext" src="/img/letters/d_1.png" />
+          <img class="cloudtext" src="/img/letters/s_1.png" />
+        </div>
 
-				<div>
-					<img class="cloudtext" src="/img/letters/a_2.png" />
-					<img class="cloudtext" src="/img/letters/l_1.png" />
-					<img class="cloudtext" src="/img/letters/l_2.png" />
-				</div>
+        <span class="cloudtext dummy"></span>
+        <!-- dummy img -->
 
-				<span class="cloudtext dummy"></span> <!-- dummy img -->
-				<div>
-					<img class="cloudtext" src="/img/letters/t_2.png" />
-					<img class="cloudtext" src="/img/letters/h_2.png" />
-					<img class="cloudtext" src="/img/letters/e_1.png" />
-				</div>
+        <div>
+          <img class="cloudtext" src="/img/letters/l_4.png" />
+          <img class="cloudtext" src="/img/letters/o_3.png" />
+          <img class="cloudtext" src="/img/letters/o_4.png" />
+          <img class="cloudtext" src="/img/letters/k_1.png" />
+        </div>
 
-			</div>
+        <span class="cloudtext dummy"></span>
+        <!-- dummy img -->
 
-			<div class="row">
-				<div>
-					<img class="cloudtext" src="/img/letters/c_1.png" />
-					<img class="cloudtext" src="/img/letters/l_3.png" />
-					<img class="cloudtext" src="/img/letters/o_2.png" />
-					<img class="cloudtext" src="/img/letters/u_1.png" />
-					<img class="cloudtext" src="/img/letters/d_1.png" />
-					<img class="cloudtext" src="/img/letters/s_1.png" />
-				</div>
+        <div>
+          <img class="cloudtext" src="/img/letters/l_5.png" />
+          <img class="cloudtext" src="/img/letters/i_1.png" />
+          <img class="cloudtext" src="/img/letters/k_2.png" />
+          <img class="cloudtext" src="/img/letters/e_2.png" />
+        </div>
+      </div>
+    </div>
 
-				<span class="cloudtext dummy"></span> <!-- dummy img -->
+    <!-- POPUP INFOBOX -->
+    <div id="infobox" class="inactive">
+      <div id="infotitle">
+        <div class="row">
+          <h5>
+            <ul>
+              We Know What All the Clouds Look Like
+            </ul>
+          </h5>
+        </div>
+      </div>
+      <p>
+        Is attention to something always an argument for the thing&#39;s
+        importance?
+      </p>
+      <p>Or can the attention itself be the important thing?</p>
+      <br />
+      <br />
+      <p class="text-center">
+        <em
+          >I am here trying to write about a digital scatter of discarded
+          objects.</em
+        >
+      </p>
+      <br />
+      <br />
+      <p>-</p>
+      <br />
+      <br />
+      <p>An aggressive silence.</p>
+      <br />
+      <br />
+      <p>-</p>
+      <br />
+      <br />
+      <p>
+        Through the wall, the chirp and mewling of some distant manufacture.
+      </p>
+      <br />
+      <p>“Super Big Mac Shrunk.”</p>
+      <p>A brag, and a confession of meekness.</p>
+      <br />
+      <br />
+      <p>-</p>
+      <br />
+      <br />
+      <p>
+        The lyric poets make an argument for transcendance, for shimmering
+        distinctions, for particular lives.
+      </p>
+      <p>(“Leaves of grass.”)</p>
+      <p>The internet makes an argument for neglect. For manufactured goop.</p>
+      <br />
+      <br />
+      <p>-</p>
+      <br />
+      <br />
+      <p>Does an image have a voice?</p>
+      <br />
+      <br />
+      <p>-</p>
+      <br />
+      <br />
+      <p>Where do voices come from?</p>
+      <br />
+      <br />
+      <p>-</p>
+      <br />
+      <br />
+      <p>
+        When I am still, in my home, I hear breeze, and birds, and the freeway.
+      </p>
+      <p><em>When I am online, I am surrounded by silence.</em></p>
+      <br />
+      <br />
+      <p>-</p>
+      <br />
+      <br />
+      <p>
+        The intrusiveness—abrupt and erotic—in clicking, zooming. Cursor
+        touching an image. Everything made flat. Context vacuumed away.
+      </p>
+      <br />
+      <br />
+      <p>-</p>
+      <br />
+      <br />
+      <p>You can't touch the digital. Nothing is actually there.</p>
+      <p>Clouds, digital clouds.</p>
+      <p>(Where is the cloud, exactly? Over our heads?)</p>
+      <br />
+      <br />
+      <p>-</p>
+      <br />
+      <br />
+      <p>
+        Some of the objects, the rusted, mottled ones—easily invite the gutter
+        aesthete&#39;s attention to surfaces.
+      </p>
+      <p>(I am a gutter aesthete.)</p>
+      <br />
+      <p>
+        But what about the blank ones, the simple ones? Objects that refuse to
+        be interesting. Our attention to them becomes an argument—with
+        ourselves. With the impersonal voice of some careless maker.
+      </p>
+      <br />
+      <br />
+      <p>-</p>
+      <br />
+      <br />
+      <p>Tenderness—an old-fashioned word.</p>
+      <p>Tenderness—a quality of attention.</p>
+      <p>
+        Tenderness—love buffetted by neglect, destruction, and exquisite
+        disregard.
+      </p>
+      <br />
+      <br />
+      <p>-</p>
+      <br />
+      <br />
+      <p>Is there a 'we' here?</p>
+      <p>Is any of this ours?</p>
+      <br />
+      <br />
+      <p>-</p>
+      <br />
+      <br />
+      <p>
+        A garlic bulb that looks like a tooth. The spreading of the stalks. The
+        back of a little girl's head.
+      </p>
+      <br />
+      <br />
+      <p>-</p>
+      <br />
+      <br />
+      <p>A math problem:</p>
+      <br />
+      <p>
+        desire of the one who made it (impersonal) + desire of the one who
+        acquired it (careless) = some quantity (n) of desire
+      </p>
+      <br />
+      <p>
+        n quantity of desire * the desire of the one who collects and documents
+        (meticulous) = ? Please show your work.
+      </p>
+      <br />
+      <br />
+      <p>-</p>
+      <br />
+      <br />
+      <p>This dark, silent place. Why does it feel so much like touch?</p>
+      <p>Digital. Digit, like finger.</p>
+      <p>Someone found these things, someone touched them.</p>
+      <br />
+      <br />
+      <p>-</p>
+      <br />
+      <br />
+      <p>
+        In the shattered mirror surface I think I can see your fingers
+        reflected.
+      </p>
+      <br />
+      <br />
+      <br />
+      <!-- credits -->
+      <p>
+        <a href="https://sky-murray.format.com/" target="_blank"
+          >Art and Concept - Sky Murray</a
+        >
+      </p>
+      <p>Photography - Perri Hofmann</p>
+      <p>Text - Agnes Borinsky</p>
+      <p>Website - Jacob Hamrick</p>
+      <br />
+      <br />
+      <br />
+      <div id="closebutton">
+        <a href="#"><p>CLOSE</p></a>
+      </div>
+    </div>
 
-				<div>
-					<img class="cloudtext" src="/img/letters/l_4.png" />
-					<img class="cloudtext" src="/img/letters/o_3.png" />
-					<img class="cloudtext" src="/img/letters/o_4.png" />
-					<img class="cloudtext" src="/img/letters/k_1.png" />
-				</div>
+    <!-- SCENE III: MAIN -->
+    <div class="main inactive scene"></div>
 
-				<span class="cloudtext dummy"></span> <!-- dummy img -->
+    <!-- NAVIGATION -->
+    <ul class="navbar-div row">
+      <li class="nav-item">
+        <a class="nav-link" id="info-button" href="#"
+          ><p class="nav-link-text">TEXT</p></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link gridImages"><p class="nav-link-text">GRID</p></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link pileImages"><p class="nav-link-text">RANDOM</p></a>
+      </li>
+    </ul>
 
-				<div>
-					<img class="cloudtext" src="/img/letters/l_5.png" />
-					<img class="cloudtext" src="/img/letters/i_1.png" />
-					<img class="cloudtext" src="/img/letters/k_2.png" />
-					<img class="cloudtext" src="/img/letters/e_2.png" />
-				</div>
+    <!-- SCRIPTS -->
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
 
-			</div>
+    <!-- jQuery UI -->
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+      crossorigin="anonymous"
+    ></script>
 
-	</div>
+    <!-- Bootstrap -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
 
-	<!-- POPUP INFOBOX -->
-	<div id="infobox" class="inactive">
-		<div id="infotitle">
-			<div class="row">
+    <!-- Moving Letters Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
-			<h5><ul>We Know What All the Clouds Look Like</ul></h5>
-			</div>
-		</div>
-		<p>Is attention to something always an argument for the thing&#39;s importance?</p>
-		<p>Or can the attention itself be the important thing?</p>
-		<br>
-		<br>
-		<p class="text-center"><em>I am here trying to write about a digital scatter of discarded objects.</em></p>
-		<br>
-		<br>
-		<p>-</p>
-		<br>
-		<br>
-		<p>An aggressive silence.</p>
-		<br>
-		<br>
-		<p>-</p>
-		<br>
-		<br>
-		<p>Through the wall, the chirp and mewling of some distant manufacture.</p>
-		<br>
-		<p>“Super Big Mac Shrunk.”</p>
-		<p>A brag, and a confession of meekness.</p>
-		<br>
-		<br>
-		<p>-</p>
-		<br>
-		<br>
-		<p>The lyric poets make an argument for transcendance, for shimmering distinctions, for particular lives.</p>
-		<p>(“Leaves of grass.”)</p>
-		<p>The internet makes an argument for neglect. For manufactured goop.</p><br>
-		<br>
-		<p>-</p>
-		<br>
-		<br>
-		<p>Does an image have a voice?</p>
-		<br>
-		<br>
-		<p>-</p>
-		<br>
-		<br>
-		<p>Where do voices come from?</p>
-		<br>
-		<br>
-		<p>-</p>
-		<br>
-		<br>
-		<p>When I am still, in my home, I hear breeze, and birds, and the freeway.</p>
-		<p><em>When I am online, I am surrounded by silence.</em></p>
-		<br>
-		<br>
-		<p>-</p>
-		<br>
-		<br>
-		<p>The intrusiveness—abrupt and erotic—in clicking, zooming. Cursor touching an image. Everything made
-flat. Context vacuumed away.</p>
-		<br>
-		<br>
-		<p>-</p>
-		<br>
-		<br>
-		<p>You can't touch the digital. Nothing is actually there.</p>
-		<p>Clouds, digital clouds.</p>
-		<p>(Where is the cloud, exactly? Over our heads?)</p>
-		<br>
-		<br>
-		<p>-</p>
-		<br>
-		<br>
-		<p>Some of the objects, the rusted, mottled ones—easily invite the gutter aesthete&#39;s attention to surfaces.</p>
-		<p>(I am a gutter aesthete.)</p>
-		<br>
-		<p>But what about the blank ones, the simple ones? Objects that refuse to be interesting.
-Our attention to them becomes an argument—with ourselves. With the impersonal voice of some careless
-maker.</p>
-		<br>
-		<br>
-		<p>-</p>
-		<br>
-		<br>
-		<p>Tenderness—an old-fashioned word.</p>
-		<p>Tenderness—a quality of attention.</p>
-		<p>Tenderness—love buffetted by neglect, destruction, and exquisite disregard.</p>
-		<br>
-		<br>
-		<p>-</p>
-		<br>
-		<br>
-		<p>Is there a 'we' here?</p>
-		<p>Is any of this ours?</p>
-		<br>
-		<br>
-		<p>-</p>
-		<br>
-		<br>
-		<p>A garlic bulb that looks like a tooth. The spreading of the stalks. The back of a little girl's head.</p>
-		<br>
-		<br>
-		<p>-</p>
-		<br>
-		<br>
-		<p>A math problem:</p>
-		<br>
-		<p>desire of the one who made it (impersonal) + desire of the one who acquired it (careless) = some quantity
-(n) of desire</p>
-	<br>
-	<p>n quantity of desire * the desire of the one who collects and documents (meticulous) = ?
-Please show your work.</p>
-	<br>
-	<br>
-	<p>-</p>
-	<br>
-	<br>
-	<p>This dark, silent place. Why does it feel so much like touch?</p>
-	<p>Digital. Digit, like finger.</p>
-	<p>Someone found these things, someone touched them.</p>
-	<br>
-	<br>
-	<p>-</p>
-	<br>
-	<br>
-	<p>In the shattered mirror surface I think I can see your fingers reflected.</p>
-	<br>
-	<br>
-	<br>
-	<div id="closebutton"><a href="#"><p>CLOSE</p></a></div>
-</div>
+    <!-- Fancybox -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"
+      integrity="sha512-j7/1CJweOskkQiS5RD9W8zhEG9D9vpgByNGxPIqkO5KrXrwyDAroM9aQ9w8J7oRqwxGyz429hPVk/zR6IOMtSA=="
+      crossorigin="anonymous"
+    ></script>
 
-	<!-- SCENE III: MAIN -->
-	<div class="main inactive scene" >
-	</div>
+    <!-- GSAP / ScrollMagic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
 
-	<!-- NAVIGATION -->
-	<ul class="navbar-div row">
-		<li class="nav-item">
-			<a class="nav-link" id="info-button" href="#"><p class="nav-link-text">TEXT</p></a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link gridImages"><p class="nav-link-text">GRID</p></a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link pileImages"><p class="nav-link-text">RANDOM</p></a>
-		</li>
-	</ul>
+    <!-- Scroll Magic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
 
-
-<!-- SCRIPTS -->
-	<!-- jQuery -->
-	<script
-		  src="https://code.jquery.com/jquery-3.6.0.min.js"
-		  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-		  crossorigin="anonymous"></script>
-
-	<!-- jQuery UI -->
-	<script
-		  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-		  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-		  crossorigin="anonymous"></script>
-
-	<!-- Bootstrap -->
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-	</script>
-
-	<!-- Moving Letters Animation -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js">
-	</script>
-
-	<!-- Fancybox -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js" integrity="sha512-j7/1CJweOskkQiS5RD9W8zhEG9D9vpgByNGxPIqkO5KrXrwyDAroM9aQ9w8J7oRqwxGyz429hPVk/zR6IOMtSA==" crossorigin="anonymous">
-	</script>
-
-
-	<!-- GSAP / ScrollMagic -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js">
-	</script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/CSSRulePlugin.min.js">
-	</script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/EasePack.min.js">
-	</script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js">
-	</script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js">
-	</script>
-
-	<!-- Scroll Magic -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.js">
-	</script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js">
-	</script>
-	<script
-		src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js">
-	</script>
-
-	<!-- Custom Script -->
-	<script src="myscript.js"></script>
-
-</body>
+    <!-- Custom Script -->
+    <script src="myscript.js"></script>
+  </body>
+</html>
