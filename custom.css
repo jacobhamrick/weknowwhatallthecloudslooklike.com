@@ -40,6 +40,10 @@ body {
 a {
   pointer-events: auto; }
 
+a:hover {
+  text-decoration: none;
+  color: #a4fa3e; }
+
 .row {
   display: flex;
   flex-direction: row;
@@ -61,7 +65,8 @@ h5 {
 
 p {
   margin: 0;
-  line-height: 1.5; }
+  line-height: 1.5;
+  letter-spacing: 0.03em; }
 
 /* -----------------------------------------------------------------------------
                          - - - >>> SCROLLHINTER <<< - - -
@@ -151,7 +156,8 @@ p {
 ----------------------------------------------------------------------------- */
 .introdiv {
   position: absolute;
-  transition: opacity 3s;
+  display: block;
+  transition: all 3s;
   margin: 0 0 10vh 0; }
 
 .introimg {
@@ -171,9 +177,13 @@ p {
 .introdiv.inactive {
   z-index: 0;
   opacity: 0;
+  display: none;
   height: 0;
-  transition: all 1s;
+  transition: all 3s;
   display: none; }
+
+#blank.introimg {
+  background-color: #000; }
 
 /* -----------------------------------------------------------------------------
                            - - - >>> TITLE SCENE <<< - - -
@@ -196,10 +206,11 @@ p {
 
 .cloudtext,
 .titlediv > .row {
-  height: 9vw;
-  line-height: 9vw; }
+  height: 10vw;
+  line-height: 10vw; }
 
 .titlediv.inactive {
+  display: none;
   opacity: 0;
   transition: all 3s; }
 
@@ -336,13 +347,15 @@ p {
   border: 1px red dotted; }
 
 #closebutton {
-  bottom: 0;
-  transition: all 0.8s; }
+  right: 5vw;
+  position: fixed; }
+  #closebutton p {
+    transition: all 1s; }
 
 #closebutton:hover p {
   color: #a4fa3e;
   text-decoration: none;
-  transition: all 0.8s; }
+  transition: all 1s; }
 
 /* -----------------------------------------------------------------------------
                            - - - >>> INFOBOX <<< - - -
@@ -356,7 +369,7 @@ p {
   visibility: visible;
   opacity: 1;
   transition: opacity 1s;
-  background-color: #000;
+  background-color: #131412;
   position: fixed;
   z-index: 9000;
   overflow: scroll;
@@ -364,9 +377,13 @@ p {
   #infobox p {
     color: #fff; }
   #infobox #infotitle {
-    width: 100%; }
+    width: 100%;
+    font-size: 2.2em; }
     #infobox #infotitle .row {
       text-align: center; }
+      #infobox #infotitle .row h5 {
+        font-weight: bold;
+        margin-bottom: 4vh; }
   #infobox .dummy {
     width: 20px; }
 
@@ -391,14 +408,14 @@ p {
                          - - - >>> NAVBAR-DIV <<< - - -
 ----------------------------------------------------------------------------- */
 .navbar-div {
-  padding: 0;
+  padding: 0 0 20px 20px;
   position: fixed;
   bottom: 0;
   margin: 0;
   opacity: 0;
   width: 100%;
   text-align: center;
-  justify-content: space-between;
+  justify-content: left;
   list-style: none; }
   .navbar-div .nav-item {
     background: none;
@@ -451,7 +468,7 @@ p {
 ############################################################################# */
   .cloudtext,
   .titlediv > .row {
-    height: 7vw; }
+    height: 8vw; }
   .cloudtext.dummy {
     margin: 0 1vw;
     width: 0.5vw; }

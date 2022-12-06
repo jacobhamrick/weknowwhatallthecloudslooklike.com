@@ -540,7 +540,8 @@ $(document).ready(function () {
   const numberOfScenes = 12;
 
   // Set Height of Intro Div
-  let introDivHeight = $(".introdiv").height() * numberOfScenes * 10; // * 10 slows opacity shift during scroll
+  // * 10 slows opacity shift during scroll, + 1 accomodates for blankImg
+  let introDivHeight = $(".introdiv").height() * (numberOfScenes + 1) * 10;
   $(".introdiv").css("height", introDivHeight);
 
   // Randomize intro image sequence
@@ -555,6 +556,7 @@ $(document).ready(function () {
       );
     }
   }
+
   printIntroImgs();
 
   // create array from printed images
@@ -572,40 +574,32 @@ $(document).ready(function () {
   }
   matchSceneWithUrl();
 
-  // Fade images in and out by attaching opacity to scroll
-  $(window).scroll(() => {
-    let scrollTop = $(this).scrollTop();
-    let introSceneHeight = $(".introdiv").height() / numberOfScenes;
-    let scrollcalc = (introSceneHeight - scrollTop) / introSceneHeight;
-    let opacityTotal = 0;
+  // Fade images in and out by attaching opacity to scroll but only when intro active
+  if (!$(".introdiv").hasClass("inactive")) {
+    $(introDiv).append("<div class='introimg' id='blank'></div>");
+    $(window).scroll(() => {
+      introImgs = $(".introimg");
+      let scrollTop = $(this).scrollTop();
+      let introSceneHeight = $(".introdiv").height() / (numberOfScenes + 1); // + 1 for blankImg
+      let scrollcalc = (introSceneHeight - scrollTop) / introSceneHeight;
+      let opacityTotal = 0;
 
-    for (let i = 0; i < numberOfScenes; i++) {
-      let img = introImgs[i];
+      // add blank image for end scene fade effect to black
 
-      console.log(scrollcalc);
+      for (let i = 0; i < numberOfScenes + 1; i++) {
+        let img = introImgs[i];
 
-      $(img).css({
-        opacity: 0,
-      });
-
-      opacityTotal = 1 - scrollcalc - i;
-
-      $(img).css({
-        opacity: opacityTotal,
-      });
-
-      //
-      //
-      // };
-
-      // if ($(opacityTotal) > 1) {
-      //   $(".current").css({
-      //     display: none,
-      //   });
-      //
-      // };
-    }
-  });
+        // console.log(scrollcalc);
+        $(img).css({
+          opacity: 0,
+        });
+        opacityTotal = 1 - scrollcalc - i;
+        $(img).css({
+          opacity: opacityTotal,
+        });
+      }
+    });
+  }
 
   if ($(".introimg").css("opacity") > 0) {
     $(".introimg").addClass("current");
@@ -647,15 +641,15 @@ $(document).ready(function () {
         .add({
           targets: ".cloudtext",
           opacity: 1,
-          duration: 1000,
+          duration: 3000,
           easing: "easeOutExpo",
-          delay: 0,
+          delay: 2000,
         });
-    }, 1000);
+    }, 3000);
 
     setTimeout(() => {
       $(titleDiv).addClass("inactive");
-    }, 10000);
+    }, 20000);
   });
 
   // -----------------------------------------------------------------------------
@@ -761,8 +755,6 @@ $(document).ready(function () {
 
   // mainDiv event timeline  ------------------------------------------
   mainscene.on("enter", (event) => {
-    $(mainDiv).removeClass("inactive");
-    $(mainDiv).addClass("visible");
     // stops title scene from displaying after it's been viewed
     $("#leTrigger").css("display", "none");
 
@@ -771,14 +763,16 @@ $(document).ready(function () {
       printIcons();
     }, 10000);
 
-    if ($(mainDiv).hasClass("visible")) {
+    setTimeout(() => {
+      $(mainDiv).removeClass("inactive");
+      $(mainDiv).addClass("visible");
       setTimeout(() => {
         $(".image-wrapper").css("opacity", "1");
         centerPile();
         pileImages();
         // draggable init ------------------------------------------------------
-      }, 11000);
-    }
+      }, 1000);
+    }, 11000);
 
     setTimeout(() => {
       $(titleDiv).css("display", "none");

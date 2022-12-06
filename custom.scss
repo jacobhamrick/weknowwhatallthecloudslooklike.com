@@ -10,7 +10,7 @@ $green: #a4fa3e;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 html,
@@ -29,17 +29,16 @@ body {
   color: $green;
 }
 ::-moz-selection {
-background-color: transparent;
-color: $green;
+  background-color: transparent;
+  color: $green;
 }
 
 .loading {
-   pointer-events: none;
-   .nav-link-text {
-     text-shadow: 0 0 20px $white;
-     transition: all 0.8s;
-
-   }
+  pointer-events: none;
+  .nav-link-text {
+    text-shadow: 0 0 20px $white;
+    transition: all 0.8s;
+  }
 }
 
 .nav-link-text {
@@ -55,6 +54,11 @@ color: $green;
 
 a {
   pointer-events: auto;
+}
+
+a:hover {
+  text-decoration: none;
+  color: $green;
 }
 
 .row {
@@ -81,9 +85,8 @@ h5 {
 p {
   margin: 0;
   line-height: 1.5;
+  letter-spacing: 0.03em;
 }
-
-
 
 /* -----------------------------------------------------------------------------
                          - - - >>> SCROLLHINTER <<< - - -
@@ -185,7 +188,8 @@ p {
 ----------------------------------------------------------------------------- */
 .introdiv {
   position: absolute;
-  transition: opacity 3s;
+  display: block;
+  transition: all 3s;
   margin: 0 0 10vh 0;
 }
 
@@ -208,9 +212,14 @@ p {
 .introdiv.inactive {
   z-index: 0;
   opacity: 0;
-  height: 0;
-  transition: all 1s;
   display: none;
+  height: 0;
+  transition: all 3s;
+  display: none;
+}
+
+.introimg#blank {
+  background-color: #000;
 }
 
 /* -----------------------------------------------------------------------------
@@ -237,11 +246,12 @@ p {
 
 .cloudtext,
 .titlediv > .row {
-  height: 9vw;
-  line-height: 9vw;
+  height: 10vw;
+  line-height: 10vw;
 }
 
 .titlediv.inactive {
+  display: none;
   opacity: 0;
   transition: all 3s;
 }
@@ -414,14 +424,18 @@ p {
 }
 
 #closebutton {
-  bottom: 0;
-  transition: all 0.8s;
+  right: 4vw + 1vw; // padding of infobox + scrollbar width
+  position: fixed;
+  p {
+    transition: all 1s;
+  }
 }
+
 #closebutton:hover {
   p {
     color: $green;
     text-decoration: none;
-    transition: all 0.8s;
+    transition: all 1s;
   }
 }
 
@@ -438,19 +452,23 @@ p {
   visibility: visible;
   opacity: 1;
   transition: opacity 1s;
-  background-color: #000;
+  background-color: #131412;
   position: fixed;
   z-index: 9000;
   overflow: scroll;
   z-index: 9999;
   p {
     color: $white;
-
   }
   #infotitle {
     width: 100%;
+    font-size: 2.2em;
     .row {
       text-align: center;
+      h5 {
+        font-weight: bold;
+        margin-bottom: 4vh;
+      }
     }
   }
   .dummy {
@@ -485,14 +503,14 @@ p {
 ----------------------------------------------------------------------------- */
 
 .navbar-div {
-  padding: 0 ; // 32px = height of mobilehintdiv in case user doesn't close
+  padding: 0 0 20px 20px; // 32px = height of mobilehintdiv in case user doesn't close
   position: fixed;
   bottom: 0;
   margin: 0;
   opacity: 0;
   width: 100%;
   text-align: center;
-  justify-content: space-between;
+  justify-content: left;
   list-style: none;
   .nav-item {
     // font-size: 40px;
@@ -570,7 +588,7 @@ p {
 
   .cloudtext,
   .titlediv > .row {
-    height: 7vw;
+    height: 8vw;
   }
 
   .cloudtext.dummy {
@@ -607,10 +625,5 @@ p {
 ############################################################################  */
 
   .navbar-div {
-
   }
-
-
-
-
 }
